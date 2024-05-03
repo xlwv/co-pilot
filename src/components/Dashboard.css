@@ -211,7 +211,8 @@ margin-top:30px;
 }
 .image-div
 {
-    height:70%;
+    /* height:70%; */
+    height:301px;
     display:flex;
     justify-content: center;
     background-color: #FEF0E7;
@@ -223,7 +224,7 @@ border-radius: 30px 30px 0px 0px;
 }
 .person-detail
 {
-    height:30%;
+    /* height:30%; */
     display:flex;
     flex-direction: column;
     justify-content: center;
@@ -237,12 +238,24 @@ border-radius: 30px 30px 0px 0px;
 
 
 }
-.dash-img
+/* .dash-img
 {
     height:70%;
     
   
+} */
+.user-photo
+{
+  height:301px;
 }
+.imgage-div{
+
+  border-radius: 30px;
+  height:301px;
+/*   
+    height:70%; */
+}
+
 .rating-chat
 {
     display: flex;
@@ -270,6 +283,9 @@ letter-spacing: 0.05em;
 
 
 
+}
+.chat-btn1:hover {
+  background: linear-gradient(180deg, #386DCB, #1C3665); /* Change gradient colors on hover */
 }
 .rank
 {
@@ -329,6 +345,7 @@ flex-direction: column;
 }
 .imgage-div{
 border-radius: 30px;
+
 }
 
 

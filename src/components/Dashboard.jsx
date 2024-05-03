@@ -196,7 +196,7 @@ export const Dashboard = () => {
                             <Col sm={3} className="dash-column">
                                 <div className='img-data'>
 
-                                    <div className='image-div'>  <Image fluid src={p3} rounded style={{ borderRadius: '30px', }} /><span className='rank'>#01</span></div>
+                                    <div className='image-div'>  <Image fluid src={p3} rounded style={{ borderRadius: '30px', }} className='user-photo' /><span className='rank'>#01</span></div>
 
                                     <div className='person-detail'>
                                         <div className='name-title'>
@@ -205,7 +205,7 @@ export const Dashboard = () => {
                                         </div>
                                         <div className='rating-chat'>
                                             <div className='stars'>⭐⭐⭐⭐⭐</div>
-                                            <Button className='chat-btn' onClick={() => setModalShow(true)}>CHAT WITH ME</Button>
+                                            <Button className='chat-btn chat-btn1' onClick={() => setModalShow(true)}>CHAT WITH ME</Button>
                                         </div>
                                     </div>
                                 </div>
@@ -213,7 +213,7 @@ export const Dashboard = () => {
                             <Col sm={3} className="dash-column">
                                 <div className='img-data'>
 
-                                    <div className='image-div'>  <Image fluid src={p1} rounded style={{ borderRadius: '30px', }} /><span className='rank'>#02</span></div>
+                                    <div className='image-div'>  <Image fluid  src={p4} rounded style={{ borderRadius: '30px', }} /><span className='rank'>#02</span></div>
 
                                     <div className='person-detail'>
                                         <div className='name-title'>
