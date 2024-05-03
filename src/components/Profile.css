@@ -258,12 +258,13 @@ margin-top: 50px;;
     flex-direction: column;
 }
 .l1
-{
+{color: #1A1A1A;
+
     font-family: Montserrat;
     font-size: 18px;
     font-weight: 500;
     line-height: 20px;
-    color: #6A6A6A;
+    
 
 
     
@@ -279,4 +280,32 @@ margin-top: 50px;;
  
    
 }
+}
+.success-main
+{
+    width: 597px;
+    height: 401px;
+    background-color: #FFFFFF;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+/* margin-left:40px; */
+margin-bottom:20px;
+}
+.modal-body
+{
+    /* height: 100dvh;
+    width:1000px; */
+display:flex;
+/* justify-content: center; */
+align-items: center;
+flex-direction: column;
+ 
+
+}
+.btn-close
+{
+    margin-right:750px;
+    background-color:white
 }

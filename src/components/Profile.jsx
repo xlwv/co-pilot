@@ -12,12 +12,67 @@ import { Link } from 'react-router-dom';
 import { CiSearch } from "react-icons/ci";
 import Image from 'react-bootstrap/Image';
 import person from '../assets/images/p2.png';
+
+import check from '../assets/images/check.png';
+
+
 import { useState } from 'react';
+import Modal from 'react-bootstrap/Modal';
+
+function MyVerticallyCenteredModal(props) {
+    return (
+      <Modal className='custom_modal'
+        {...props}
+        size="lg"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+      >
+       
+        <Modal.Body>
+        <button type="button" className="btn-close" onClick={props.onHide} >
+        </button>
+       <div className='success-main'>
+       <Image src={check}></Image>
+       <span className='success-txt'>Document Uploaded Successfully</span>
+       </div>
+
+
+        </Modal.Body>
+      
+      </Modal>
+      
+    );
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 export const Profile = () => {
 
     
         const [selectedFile, setSelectedFile] = useState(null);
-      
+        const [modalShow, setModalShow] = React.useState(false);
         const handleFileChange = (event) => {
           setSelectedFile(event.target.files[0]);
         };
@@ -31,6 +86,12 @@ export const Profile = () => {
             console.log('No file selected');
           }
         };
+        const handleSubmit = (event) => {
+            event.preventDefault(); 
+            window.location.href = '/dashboard';
+    
+           
+          };
     
 
 
@@ -54,7 +115,7 @@ export const Profile = () => {
                 <Container fluid className='profile-content'>
                     <div className='profile-nav-bar'>
                         <div className='profile-btn'>
-                            <Button href="#" className='profile-all-avatar'>All Avatar</Button>
+                            <Button href="#" className='profile-all-avatar' onClick={handleSubmit}>All Avatar</Button>
                             <Button href="#" className='profile-profile'>profile</Button>
                         </div>
                         <div type="text" className='profile-search-bar'><CiSearch className='profile-search-icon' />start searching Avatar here ...</div>
@@ -74,8 +135,8 @@ export const Profile = () => {
                             <div className='upload'>
                                     <span className='l1'>Upload Training Document</span>
                                     <div className='res' >
-                                    <input type="file" accept=".pdf" onChange={handleFileChange}  style={{  }}/>
-                                    <button onClick={handleUpload} className='train-doc' >Upload</button>
+                                    <input type="file" accept=".pdf"   style={{  }}/>
+                                    <button onClick={() => setModalShow(true)} className='train-doc' >Upload</button>
                                     </div>
                                 </div>
                         </div>
@@ -86,6 +147,11 @@ export const Profile = () => {
                 </Container>
 
             </div>
+
+            <MyVerticallyCenteredModal
+                show={modalShow}
+                onHide={() => setModalShow(false)}
+            />
         </>
 
 

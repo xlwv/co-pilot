@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Dashboard.css';
 import Container from 'react-bootstrap/Container';
@@ -12,7 +12,14 @@ import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { CiSearch } from "react-icons/ci";
 import bot from '../assets/images/bot.png';
+import user from '../assets/images/user.png';
+
 import p1 from '../assets/images/p1.png';
+import p2 from '../assets/images/p2.png';
+import p3 from '../assets/images/p3.png';
+import p4 from '../assets/images/p4.png';
+import g1 from '../assets/images/g1.png';
+import g2 from '../assets/images/g2.png';
 import Image from 'react-bootstrap/Image';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -32,20 +39,26 @@ function MyVerticallyCenteredModal(props) {
         setMessage(event.target.value);
     };
 
-    
-    const sendMessage = async () => {
-        try {
-            
-            const response = await axios.post('/api/sendMessage', { message });
 
-           
+    const sendMessage = async () => {
+
+        try {
+            const headers={"session-id": sessionStorage.getItem("sessionId")};
+            
             setChatHistory([...chatHistory, { sender: 'User', message }]);
-            setChatHistory([...chatHistory, { sender: 'Bot', message: response.data }]);
+            const response = await axios.post('https://copilot.waysaheadglobal.com/api/Rupam', { user_input: message },{headers});
+
+
+            // setChatHistory([...chatHistory, { sender: 'User', message }]);
+            console.log(response);
+            // setChatHistory([...chatHistory, { sender: 'Bot', message: response.data.response }]);
+            setChatHistory([...chatHistory, {sender: "User", message}, {sender: "Bot", message: response.data.response}])
+
         } catch (error) {
             console.error('Error sending message:', error);
         }
 
-        
+
         setMessage('');
     };
 
@@ -60,7 +73,7 @@ function MyVerticallyCenteredModal(props) {
                 <button type="button" className="btn-close" onClick={props.onHide} style={{ backgroundColor: '#FFFFFF' }}></button>
                 <div className="chat_msg_cont">
                     <div className="chat_prof_head">
-                        <h3>Balbir Singh</h3>
+                        <h3>Rupam Bhattacharjee</h3>
                     </div>
                     <div className="chat-body">
                         <div className="chat-inner">
@@ -69,8 +82,9 @@ function MyVerticallyCenteredModal(props) {
                                     <div key={index} className={`chat-mss ${chat.sender === 'User' ? 'rply-mss' : 'user-mss'}`}>
                                         <ul>
                                             <li>
-                                                <span><img src={bot} alt="" /></span>
-                                                <p>{chat.message}</p>
+                                            <span><img src={bot} alt="" /></span>
+
+                                                   <p>{chat.message}</p>
                                             </li>
                                         </ul>
                                     </div>
@@ -118,6 +132,27 @@ function MyVerticallyCenteredModal(props) {
 
 export const Dashboard = () => {
     const [modalShow, setModalShow] = React.useState(false);
+
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        window.location.href = '/Profile';
+
+    };
+    useEffect(() => {
+
+        async function generateSessionId() {
+
+            const response = await fetch("https://copilot.waysaheadglobal.com/api/generate_sessionid");
+            const data = await response.text();
+            sessionStorage.setItem("sessionId", data);
+        }
+        if(!sessionStorage.getItem("sessionId")){
+            generateSessionId();
+        }
+     
+    }, [])
+
     return (
         <>
             <div className='dashboard-main'>
@@ -135,7 +170,7 @@ export const Dashboard = () => {
                     <div className='nav-bar'>
                         <div className='dash-btn'>
                             <Button href="#" className='all-avatar'>All Avatar</Button>
-                            <Button href="#" className='profile'>profile</Button>
+                            <Button href="#" className='profile' onClick={handleSubmit}>profile</Button>
                         </div>
                         <div type="text" className='search-bar'><CiSearch className='search-icon' />start searching Avatar here ...</div>
                     </div>
@@ -161,7 +196,7 @@ export const Dashboard = () => {
                             <Col sm={3} className="dash-column">
                                 <div className='img-data'>
 
-                                    <div className='image-div'>  <Image fluid src={p1} rounded style={{ borderRadius: '30px', }} /><span className='rank'>#01</span></div>
+                                    <div className='image-div'>  <Image fluid src={p3} rounded style={{ borderRadius: '30px', }} /><span className='rank'>#01</span></div>
 
                                     <div className='person-detail'>
                                         <div className='name-title'>
@@ -178,7 +213,7 @@ export const Dashboard = () => {
                             <Col sm={3} className="dash-column">
                                 <div className='img-data'>
 
-                                    <div className='image-div'>  <Image fluid src={p1} rounded style={{ borderRadius: '30px', }} /><span className='rank'>#01</span></div>
+                                    <div className='image-div'>  <Image fluid src={p1} rounded style={{ borderRadius: '30px', }} /><span className='rank'>#02</span></div>
 
                                     <div className='person-detail'>
                                         <div className='name-title'>
@@ -195,7 +230,7 @@ export const Dashboard = () => {
                             <Col sm={3} className="dash-column">
                                 <div className='img-data'>
 
-                                    <div className='image-div'>  <Image fluid src={p1} rounded style={{ borderRadius: '30px', }} /><span className='rank'>#01</span></div>
+                                    <div className='image-div'>  <Image fluid src={p2} rounded style={{ borderRadius: '30px', }} /><span className='rank'>#03</span></div>
 
                                     <div className='person-detail'>
                                         <div className='name-title'>
@@ -212,7 +247,7 @@ export const Dashboard = () => {
                             <Col sm={3} className="dash-column">
                                 <div className='img-data'>
 
-                                    <div className='image-div'>  <Image fluid src={p1} rounded style={{ borderRadius: '30px', }} /><span className='rank'>#01</span></div>
+                                    <div className='image-div'>  <Image fluid src={g2} rounded style={{ borderRadius: '30px', }} /><span className='rank'>#04</span></div>
 
                                     <div className='person-detail'>
                                         <div className='name-title'>
@@ -232,7 +267,7 @@ export const Dashboard = () => {
                             <Col sm={3} className="dash-column">
                                 <div className='img-data'>
 
-                                    <div className='image-div'>  <Image fluid src={p1} rounded style={{ borderRadius: '30px', }} /><span className='rank'>#01</span></div>
+                                    <div className='image-div'>  <Image fluid src={g1} rounded style={{ borderRadius: '30px', }} /><span className='rank'>#05</span></div>
 
                                     <div className='person-detail'>
                                         <div className='name-title'>
@@ -249,7 +284,7 @@ export const Dashboard = () => {
                             <Col sm={3} className="dash-column">
                                 <div className='img-data'>
 
-                                    <div className='image-div'>  <Image fluid src={p1} rounded style={{ borderRadius: '30px', }} /><span className='rank'>#01</span></div>
+                                    <div className='image-div'>  <Image fluid src={g2} rounded style={{ borderRadius: '30px', }} /><span className='rank'>#06</span></div>
 
                                     <div className='person-detail'>
                                         <div className='name-title'>
@@ -266,7 +301,7 @@ export const Dashboard = () => {
                             <Col sm={3} className="dash-column">
                                 <div className='img-data'>
 
-                                    <div className='image-div'>  <Image fluid src={p1} rounded style={{ borderRadius: '30px', }} /><span className='rank'>#01</span></div>
+                                    <div className='image-div'>  <Image fluid src={g1} rounded style={{ borderRadius: '30px', }} /><span className='rank'>#07</span></div>
 
                                     <div className='person-detail'>
                                         <div className='name-title'>
@@ -283,7 +318,7 @@ export const Dashboard = () => {
                             <Col sm={3} className="dash-column">
                                 <div className='img-data'>
 
-                                    <div className='image-div'>  <Image fluid src={p1} rounded style={{ borderRadius: '30px', }} /><span className='rank'>#01</span></div>
+                                    <div className='image-div'>  <Image fluid src={p1} rounded style={{ borderRadius: '30px', }} /><span className='rank'>#08</span></div>
 
                                     <div className='person-detail'>
                                         <div className='name-title'>
