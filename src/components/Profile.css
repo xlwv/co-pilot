@@ -1,0 +1,282 @@
+.profile-main
+{
+background-color:#EBF7FB ;
+width: 100dvw;
+height:100%;
+display: flex;
+
+}
+.profile-side-bar
+{
+    height: 100dvh;
+    width:70px;
+    border-radius:265px;
+    background-color: #FFFFFF;
+    display:flex;
+    flex-direction:column;
+  align-items: center;
+}
+.profile-side-bar-add
+{
+    background-color: #1B3360;
+    width: 64px;
+    height: 64px;
+    border: 2px solid #FFFFFF;
+    border-radius: 50%;
+    display: flex;
+  justify-content: center; 
+  align-items: center;
+  margin-top:5px;
+}
+.profile-home-icon
+{
+    color:#BDBDBD;
+margin-top:120px;
+height:30px;
+width:30px;
+}
+.profile-profile-icon
+{
+    color:#BDBDBD;
+    margin-top:30px;
+    height:30px;
+width:30px;
+color:#1B3360;
+}
+
+.profile-settings-icon
+{
+    color: #BDBDBD; 
+    margin-bottom :10px;
+    height:30px;
+    width:30px;
+    margin-top:30px;
+
+}
+.profile-content
+{
+    height:100%;
+    padding-top:20px;
+    padding-right:70px;
+    padding-bottom:30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+   
+   
+}
+
+.profile-btn{
+display:flex;
+}
+.profile-all-avatar
+{
+    border-Radius:47.5px;
+    
+   
+    font-family: Montserrat;
+    border: none;
+    text-align: center;
+    width: 160px;
+
+
+
+    background: #FFFFFF;
+    color:#1B3360;
+font-size: 20px;
+font-weight: 600;
+line-height: 18px;
+letter-spacing: 0.03em;
+text-align: center;
+height: 50px;
+display: flex;
+justify-content: center;
+align-items: center;
+
+}
+.profile-profile
+{
+
+    width: 160px;
+   
+    background: #1B3360;
+    
+    border-Radius:47.5px;
+    
+    color:#FFFFFF;
+margin-left:13px;
+    font-family: Montserrat;
+   border: none;
+    height: 50px;
+    text-align: center;
+    
+    justify-content: center;
+
+font-size: 20px;
+font-weight: 600;
+line-height: 18px;
+letter-spacing: 0.03em;
+
+display: flex;
+
+align-items: center;
+
+}
+@media only screen and (max-width: 1200px) 
+{
+    
+.profile-profile{
+  
+    margin-left:0px;
+ 
+   
+}
+
+
+}
+.profile-nav-bar{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 20px;
+   
+}
+.profile-search-bar{
+
+
+border-radius: 47.5px;
+background-color: #FFFFFF;
+height:50px;
+max-width: 490px;
+width:100%;
+padding-left:10px;
+display: flex;
+
+align-items: center;
+gap:10px;
+
+font-family: Montserrat;
+font-size: 18px;
+font-weight: 500;
+line-height: 18px;
+letter-spacing: 0.03em;
+color: #767676;
+
+
+  
+}
+.profile-search-icon
+
+{
+    height:25px;
+    width:25px;
+}
+.user-information
+{
+    max-width: 1400px;
+    width:100%;
+    height: 536px;
+    background-color: #FFFFFF;
+    gap: 0px;
+    border-radius: 30px;
+    margin-left: 20px;
+    margin-top:50px;
+    padding:15px;
+    
+}
+.blue
+{
+    width: 100%;
+    height:30%;
+    background: linear-gradient(90deg, #3869C6 2.85%, #1B3360 97.46%);
+border-radius: 30px;
+display:flex;
+box-sizing: border-box;
+justify-content:flex-end;
+padding-right: 20px;
+
+
+}
+.your-profile
+{
+    margin-top:105px;
+    font-family: Montserrat;
+font-size: 32px;
+font-weight: 600;
+line-height: 32px;
+letter-spacing: 0.01em;
+text-align: left;
+color:#FFFFFF;
+
+
+}
+.photo
+{
+    width: 275px;
+    height: 275px;
+    gap: 0px;
+    background-color:#FEF0E7 ;
+    opacity: 0px;
+    border-radius: 50%;
+    background-image: url("../assets/images/p2.png");
+    background-repeat: no-repeat;
+    background-position: center;
+margin-top: 50px;;
+    /* position: absolute; */
+    /* top:25%; */
+    
+
+     
+}
+.img-doc
+{
+    display: flex;
+ /* justify-content:end; */
+ 
+}
+.train-doc
+{
+
+    color: #1D3CDF;
+    border: 1px solid #1D3CDF;
+    width: 76px;
+    height: 23px;
+    background-color: #FFFFFF;
+    gap: 15px;
+    border-radius: 5px;
+
+    border: 1px solid #1D3CDF;
+    margin-top: 30px;
+
+   
+
+}
+.upload
+{
+    margin-top: 30px;
+    margin-right:100px;
+    display: flex;
+    flex-direction: column;
+}
+.l1
+{
+    font-family: Montserrat;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 20px;
+    color: #6A6A6A;
+
+
+    
+}
+
+
+@media only screen and (max-width: 1200px) 
+{
+    
+    .res{
+        display: flex;
+        flex-direction: column;
+ 
+   
+}
+}
