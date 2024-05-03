@@ -1,5 +1,5 @@
 // import { useEffect } from "react";
-// import {Routes, Route,} from "react-router-dom";
+import {Routes, Route,} from "react-router-dom";
 import { Login } from "./components/Login";
 import { Dashboard } from "./components/Dashboard";
 import { Profile } from "./components/Profile";
@@ -7,11 +7,17 @@ import React from 'react';
 function App() {
   return (
    <>
-   {/* <Routes>
+
+   <Routes>
     <Route path="/Login" element={<Login/>}/>
-   </Routes> */}
+    <Route path="/Dashboard" element={<Dashboard/>}/>
+    <Route path="/Profile" element={<Profile/>}/>
+    
+
+    
+   </Routes>
    {/* <Login/> */}
-   <Dashboard />
+   {/* <Dashboard /> */}
    {/* <Profile/> */}
 
    </>

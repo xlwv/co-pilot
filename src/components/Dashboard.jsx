@@ -165,8 +165,8 @@ export const Dashboard = () => {
 
                                     <div className='person-detail'>
                                         <div className='name-title'>
-                                            <span className='person-name'>Balbir Singh</span>
-                                            <span className='person-title'>Web Developer</span>
+                                            <span className='person-name'>Rupam Bhattacharjee</span>
+                                            <span className='person-title'>CEO</span>
                                         </div>
                                         <div className='rating-chat'>
                                             <div className='stars'>⭐⭐⭐⭐⭐</div>
@@ -199,8 +199,8 @@ export const Dashboard = () => {
 
                                     <div className='person-detail'>
                                         <div className='name-title'>
-                                            <span className='person-name'>Balbir Singh</span>
-                                            <span className='person-title'>Web Developer</span>
+                                            <span className='person-name'>Akshayaa Easwaran</span>
+                                            <span className='person-title'>UI/UX Designer</span>
                                         </div>
                                         <div className='rating-chat'>
                                             <div className='stars'>⭐⭐⭐⭐⭐</div>
@@ -216,8 +216,8 @@ export const Dashboard = () => {
 
                                     <div className='person-detail'>
                                         <div className='name-title'>
-                                            <span className='person-name'>Balbir Singh</span>
-                                            <span className='person-title'>Web Developer</span>
+                                            <span className='person-name'>Varsha</span>
+                                            <span className='person-title'>UI/UX Designer</span>
                                         </div>
                                         <div className='rating-chat'>
                                             <div className='stars'>⭐⭐⭐⭐⭐</div>
@@ -236,7 +236,7 @@ export const Dashboard = () => {
 
                                     <div className='person-detail'>
                                         <div className='name-title'>
-                                            <span className='person-name'>Balbir Singh</span>
+                                            <span className='person-name'>Prabhat Ranjan Kumar</span>
                                             <span className='person-title'>Web Developer</span>
                                         </div>
                                         <div className='rating-chat'>
@@ -253,8 +253,8 @@ export const Dashboard = () => {
 
                                     <div className='person-detail'>
                                         <div className='name-title'>
-                                            <span className='person-name'>Balbir Singh</span>
-                                            <span className='person-title'>Web Developer</span>
+                                            <span className='person-name'>Rudrakshi Ghosh</span>
+                                            <span className='person-title'>Project coordinator</span>
                                         </div>
                                         <div className='rating-chat'>
                                             <div className='stars'>⭐⭐⭐⭐⭐</div>
@@ -270,8 +270,8 @@ export const Dashboard = () => {
 
                                     <div className='person-detail'>
                                         <div className='name-title'>
-                                            <span className='person-name'>Balbir Singh</span>
-                                            <span className='person-title'>Web Developer</span>
+                                            <span className='person-name'>Monica</span>
+                                            <span className='person-title'>Marketing</span>
                                         </div>
                                         <div className='rating-chat'>
                                             <div className='stars'>⭐⭐⭐⭐⭐</div>
@@ -287,8 +287,8 @@ export const Dashboard = () => {
 
                                     <div className='person-detail'>
                                         <div className='name-title'>
-                                            <span className='person-name'>Balbir Singh</span>
-                                            <span className='person-title'>Web Developer</span>
+                                            <span className='person-name'>Anil</span>
+                                            <span className='person-title'>dotnet developer</span>
                                         </div>
                                         <div className='rating-chat'>
                                             <div className='stars'>⭐⭐⭐⭐⭐</div>

@@ -8,6 +8,7 @@ import Form from 'react-bootstrap/Form';
 export const Login = () => {
     const handleSubmit = (event) => {
         event.preventDefault(); 
+        window.location.href = '/dashboard';
 
         console.log('Form submitted!');
       };
