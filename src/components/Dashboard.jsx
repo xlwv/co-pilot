@@ -13,6 +13,7 @@ import { Link } from 'react-router-dom';
 import { CiSearch } from "react-icons/ci";
 import bot from '../assets/images/bot.png';
 import user from '../assets/images/user.png';
+import blueuser from '../assets/images/blueuser.png';
 
 import p1 from '../assets/images/p1.png';
 import p2 from '../assets/images/p2.png';
@@ -31,13 +32,14 @@ import axios from 'axios';
 function MyVerticallyCenteredModal(props) {
     const [message, setMessage] = useState('');
     const [chatHistory, setChatHistory] = useState([
-        { sender: 'Bot', message: 'Hi, please clarify few things about the design.' },
-        { sender: 'Bot', message: 'Yes sure.' }
+        { sender: 'Bot', message: 'Hi, please clarify few things about the design.' }
+       
     ]);
 
     const handleMessageChange = (event) => {
         setMessage(event.target.value);
     };
+    const [name,Setname]=useState('');
 
 
     const sendMessage = async () => {
@@ -82,7 +84,7 @@ function MyVerticallyCenteredModal(props) {
                                     <div key={index} className={`chat-mss ${chat.sender === 'User' ? 'rply-mss' : 'user-mss'}`}>
                                         <ul>
                                             <li>
-                                            <span><img src={bot} alt="" /></span>
+                                            <span><img src={chat.sender === 'User' ? user : bot} alt="" /></span>
 
                                                    <p>{chat.message}</p>
                                             </li>
@@ -95,12 +97,14 @@ function MyVerticallyCenteredModal(props) {
                     <div className="chat_footer">
                         <div className="chat-foot" id="chat_footer_box">
                             <div className="att_plane">
-                                <label htmlFor="BannerUpload" className="btn">
+                                {/* <label htmlFor="BannerUpload" className="btn">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="20" viewBox="0 0 14 20" fill="none">
                                         <path d="M1.82865 10.4857L7.48551 4.82888C8.65708 3.6573 10.5566 3.6573 11.7281 4.82888C12.8997 6.00045 12.8997 7.89994 11.7281 9.07152L5.01063 15.789C4.42485 16.3748 3.4751 16.3748 2.88931 15.789C2.30352 15.2032 2.30352 14.2535 2.88931 13.6677L8.89972 7.6573C9.09498 7.46204 9.09498 7.14546 8.89972 6.9502C8.70446 6.75493 8.38787 6.75493 8.19261 6.9502L2.1822 12.9606C1.20589 13.9369 1.20589 15.5198 2.1822 16.4961C3.15852 17.4724 4.74143 17.4724 5.71774 16.4961L12.4353 9.77862C13.9974 8.21653 13.9974 5.68387 12.4353 4.12177C10.8732 2.55967 8.3405 2.55967 6.7784 4.12177L1.12154 9.77862C0.926282 9.97388 0.926282 10.2905 1.12154 10.4857C1.31681 10.681 1.63339 10.681 1.82865 10.4857Z" fill="white"></path>
                                     </svg>
                                     <input type="file" id="BannerUpload" />
-                                </label>
+                                </label> */}
+                                <img src={blueuser} className='chat-user'></img>
+
                             </div>
                             <div className="chat-box">
                                 <form name="chatform" id="send-message" onSubmit={(e) => { e.preventDefault(); sendMessage(); }}>
@@ -139,6 +143,8 @@ export const Dashboard = () => {
         window.location.href = '/Profile';
 
     };
+    
+
     useEffect(() => {
 
         async function generateSessionId() {
@@ -188,12 +194,12 @@ export const Dashboard = () => {
 
 
 
-
+{/* <Container className='wrap'> */}
                         <Row className="dash-row">
                             {/* First Row */}
 
 
-                            <Col sm={3} className="dash-column">
+                            <Col lg={3} md={6} sm={6} className="dash-column">
                                 <div className='img-data'>
 
                                     <div className='image-div'>  <Image fluid src={p3} rounded style={{ borderRadius: '30px', }} className='user-photo' /><span className='rank'>#01</span></div>
@@ -205,29 +211,29 @@ export const Dashboard = () => {
                                         </div>
                                         <div className='rating-chat'>
                                             <div className='stars'>⭐⭐⭐⭐⭐</div>
-                                            <Button className='chat-btn chat-btn1' onClick={() => setModalShow(true)}>CHAT WITH ME</Button>
+                                            <Button className='chat-btn chat-btn1' onClick={() => setModalShow(true)}>CHAT</Button>
                                         </div>
                                     </div>
                                 </div>
                             </Col>
-                            <Col sm={3} className="dash-column">
+                            <Col lg={3} md={6}  sm={6} className="dash-column">
                                 <div className='img-data'>
 
                                     <div className='image-div'>  <Image fluid  src={p4} rounded style={{ borderRadius: '30px', }} /><span className='rank'>#02</span></div>
 
                                     <div className='person-detail'>
                                         <div className='name-title'>
-                                            <span className='person-name'>Balbir Singh</span>
-                                            <span className='person-title'>Web Developer</span>
+                                            <span className='person-name'>Vishnu</span>
+                                            <span className='person-title'>Data scientist</span>
                                         </div>
                                         <div className='rating-chat'>
                                             <div className='stars'>⭐⭐⭐⭐⭐</div>
-                                            <Button className='chat-btn'>CHAT WITH ME</Button>
+                                            <Button className='chat-btn chat-btn1' onClick={() => setModalShow(true)}>CHAT </Button>
                                         </div>
                                     </div>
                                 </div>
                             </Col>
-                            <Col sm={3} className="dash-column">
+                            <Col lg={3} md={6}  sm={6} className="dash-column">
                                 <div className='img-data'>
 
                                     <div className='image-div'>  <Image fluid src={p2} rounded style={{ borderRadius: '30px', }} /><span className='rank'>#03</span></div>
@@ -239,12 +245,12 @@ export const Dashboard = () => {
                                         </div>
                                         <div className='rating-chat'>
                                             <div className='stars'>⭐⭐⭐⭐⭐</div>
-                                            <Button className='chat-btn'>CHAT WITH ME</Button>
+                                            <Button className='chat-btn'>CHAT </Button>
                                         </div>
                                     </div>
                                 </div>
                             </Col>
-                            <Col sm={3} className="dash-column">
+                            <Col lg={3} md={6}  sm={6} className="dash-column">
                                 <div className='img-data'>
 
                                     <div className='image-div'>  <Image fluid src={g2} rounded style={{ borderRadius: '30px', }} /><span className='rank'>#04</span></div>
@@ -256,7 +262,7 @@ export const Dashboard = () => {
                                         </div>
                                         <div className='rating-chat'>
                                             <div className='stars'>⭐⭐⭐⭐⭐</div>
-                                            <Button className='chat-btn'>CHAT WITH ME</Button>
+                                            <Button className='chat-btn'>CHAT </Button>
                                         </div>
                                     </div>
                                 </div>
@@ -264,24 +270,24 @@ export const Dashboard = () => {
                         </Row>
                         {/* Second Row */}
                         <Row className='dash-row'>
-                            <Col sm={3} className="dash-column">
+                            <Col lg={3} md={6}  sm={6}className="dash-column">
                                 <div className='img-data'>
 
                                     <div className='image-div'>  <Image fluid src={g1} rounded style={{ borderRadius: '30px', }} /><span className='rank'>#05</span></div>
 
                                     <div className='person-detail'>
                                         <div className='name-title'>
-                                            <span className='person-name'>Prabhat Ranjan Kumar</span>
+                                            <span className='person-name'>Prabhat Ranjan</span>
                                             <span className='person-title'>Web Developer</span>
                                         </div>
                                         <div className='rating-chat'>
                                             <div className='stars'>⭐⭐⭐⭐⭐</div>
-                                            <Button className='chat-btn'>CHAT WITH ME</Button>
+                                            <Button className='chat-btn'>CHAT</Button>
                                         </div>
                                     </div>
                                 </div>
                             </Col>
-                            <Col sm={3} className="dash-column">
+                            <Col lg={3} md={6}  sm={6}className="dash-column">
                                 <div className='img-data'>
 
                                     <div className='image-div'>  <Image fluid src={g2} rounded style={{ borderRadius: '30px', }} /><span className='rank'>#06</span></div>
@@ -293,12 +299,12 @@ export const Dashboard = () => {
                                         </div>
                                         <div className='rating-chat'>
                                             <div className='stars'>⭐⭐⭐⭐⭐</div>
-                                            <Button className='chat-btn'>CHAT WITH ME</Button>
+                                            <Button className='chat-btn'>CHAT</Button>
                                         </div>
                                     </div>
                                 </div>
                             </Col>
-                            <Col sm={3} className="dash-column">
+                            <Col lg={3} md={6}  sm={6} className="dash-column">
                                 <div className='img-data'>
 
                                     <div className='image-div'>  <Image fluid src={g1} rounded style={{ borderRadius: '30px', }} /><span className='rank'>#07</span></div>
@@ -310,12 +316,12 @@ export const Dashboard = () => {
                                         </div>
                                         <div className='rating-chat'>
                                             <div className='stars'>⭐⭐⭐⭐⭐</div>
-                                            <Button className='chat-btn'>CHAT WITH ME</Button>
+                                            <Button className='chat-btn'>CHAT </Button>
                                         </div>
                                     </div>
                                 </div>
                             </Col>
-                            <Col sm={3} className="dash-column">
+                            <Col lg={3} md={6}  sm={6}className="dash-column">
                                 <div className='img-data'>
 
                                     <div className='image-div'>  <Image fluid src={p1} rounded style={{ borderRadius: '30px', }} /><span className='rank'>#08</span></div>
@@ -327,14 +333,14 @@ export const Dashboard = () => {
                                         </div>
                                         <div className='rating-chat'>
                                             <div className='stars'>⭐⭐⭐⭐⭐</div>
-                                            <Button className='chat-btn'>CHAT WITH ME</Button>
+                                            <Button className='chat-btn'>CHAT</Button>
                                         </div>
                                     </div>
                                 </div>
                             </Col>
                         </Row>
 
-
+</Container>
 
                     </Container>
 
@@ -345,7 +351,7 @@ export const Dashboard = () => {
 
 
 
-                </Container>
+                {/* </Container> */}
 
 
 
