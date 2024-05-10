@@ -26,29 +26,32 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Modal from 'react-bootstrap/Modal';
 import axios from 'axios';
+import Card from './Card';
 
 
 
-function MyVerticallyCenteredModal(props) {
+function MyVerticallyCenteredModal({ pname, ...props}) {
     const [message, setMessage] = useState('');
     const [chatHistory, setChatHistory] = useState([
         { sender: 'Bot', message: 'Hi, please clarify few things about the design.' }
        
     ]);
+    console.log(pname);
 
     const handleMessageChange = (event) => {
         setMessage(event.target.value);
     };
-    const [name,Setname]=useState('');
+   
 
 
     const sendMessage = async () => {
-
+        // console.log(   "working can be added in the api ",pname);
         try {
             const headers={"session-id": sessionStorage.getItem("sessionId")};
-            
+           
+            // console.log(   "working can be added in the api ",pname);
             setChatHistory([...chatHistory, { sender: 'User', message }]);
-            const response = await axios.post('https://copilot.waysaheadglobal.com/api/Rupam', { user_input: message },{headers});
+            const response = await axios.post(`https://copilot.waysaheadglobal.com/api/${pname}`, { user_input: message },{headers});
 
 
             // setChatHistory([...chatHistory, { sender: 'User', message }]);
@@ -58,6 +61,7 @@ function MyVerticallyCenteredModal(props) {
 
         } catch (error) {
             console.error('Error sending message:', error);
+          
         }
 
 
@@ -69,13 +73,12 @@ function MyVerticallyCenteredModal(props) {
             {...props}
             size="lg"
             aria-labelledby="contained-modal-title-vcenter"
-            centered
-        >
+            centered>
             <Modal.Body>
                 <button type="button" className="btn-close" onClick={props.onHide} style={{ backgroundColor: '#FFFFFF' }}></button>
                 <div className="chat_msg_cont">
                     <div className="chat_prof_head">
-                        <h3>Rupam Bhattacharjee</h3>
+                        <h3>{pname}</h3>
                     </div>
                     <div className="chat-body">
                         <div className="chat-inner">
@@ -108,7 +111,7 @@ function MyVerticallyCenteredModal(props) {
                             </div>
                             <div className="chat-box">
                                 <form name="chatform" id="send-message" onSubmit={(e) => { e.preventDefault(); sendMessage(); }}>
-                                    <textarea rows="1" type="text" placeholder="Ask me anything" className="msg_int_style" id="message" value={message} onChange={handleMessageChange} style={{ color: 'white' }}></textarea>
+                                    <input  type="text" placeholder="Ask me anything" className="msg_int_style" id="message" value={message} onChange={handleMessageChange} style={{ color: 'white' }}></input>
                                 </form>
                             </div>
                             <div className="sent-btn-emoji">
@@ -136,6 +139,7 @@ function MyVerticallyCenteredModal(props) {
 
 export const Dashboard = () => {
     const [modalShow, setModalShow] = React.useState(false);
+    const [apiName, setApiName] = useState("");
 
 
     const handleSubmit = (event) => {
@@ -143,6 +147,7 @@ export const Dashboard = () => {
         window.location.href = '/Profile';
 
     };
+
     
 
     useEffect(() => {
@@ -158,6 +163,18 @@ export const Dashboard = () => {
         }
      
     }, [])
+    const handleChatClick = (name) => {
+        
+        setModalShow(true);
+      
+        console.log("Clicked person's name:", name);
+        setApiName(name);
+       
+
+    };
+
+
+    
 
     return (
         <>
@@ -211,10 +228,26 @@ export const Dashboard = () => {
                                         </div>
                                         <div className='rating-chat'>
                                             <div className='stars'>⭐⭐⭐⭐⭐</div>
-                                            <Button className='chat-btn chat-btn1' onClick={() => setModalShow(true)}>CHAT</Button>
+                                            <Button className='chat-btn chat-btn1' onClick={() => handleChatClick("Rupam")}>CHAT</Button>
                                         </div>
                                     </div>
                                 </div>
+{/*                             
+                             <Card
+                             imageSrc={p3}
+                             pname="Rupam"
+                             ptitle="CEO"
+                             prating="⭐⭐⭐⭐⭐"
+                             onChatClick={handleChatClick}
+                           
+                             /> */}
+
+
+
+
+
+
+
                             </Col>
                             <Col lg={3} md={6}  sm={6} className="dash-column">
                                 <div className='img-data'>
@@ -228,10 +261,22 @@ export const Dashboard = () => {
                                         </div>
                                         <div className='rating-chat'>
                                             <div className='stars'>⭐⭐⭐⭐⭐</div>
-                                            <Button className='chat-btn chat-btn1' onClick={() => setModalShow(true)}>CHAT </Button>
+                                            <Button className='chat-btn chat-btn1'  onClick={() => handleChatClick("Vishnu")}>CHAT </Button>
                                         </div>
                                     </div>
                                 </div>
+                            {/* <Card
+                             imageSrc={p4}
+                             pname={"Data scientist"}
+                             ptitle="vishnu"
+                             prating="⭐⭐⭐⭐⭐"
+                             onChatClick={handleChatClick}
+                            
+                             /> */}
+
+
+
+
                             </Col>
                             <Col lg={3} md={6}  sm={6} className="dash-column">
                                 <div className='img-data'>
@@ -360,7 +405,8 @@ export const Dashboard = () => {
             <MyVerticallyCenteredModal
                 show={modalShow}
                 onHide={() => setModalShow(false)}
-            />
+                pname={apiName}
+/>
 
         </>
     );
