@@ -14,6 +14,8 @@ import { CiSearch } from "react-icons/ci";
 import bot from '../assets/images/bot.png';
 import user from '../assets/images/user.png';
 import blueuser from '../assets/images/blueuser.png';
+import send from '../assets/images/send.png';
+
 
 import p1 from '../assets/images/p1.png';
 import p2 from '../assets/images/p2.png';
@@ -26,42 +28,41 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Modal from 'react-bootstrap/Modal';
 import axios from 'axios';
-import Card from './Card';
+import CardData from './Card';
 
 
 
-function MyVerticallyCenteredModal({ pname, ...props}) {
+function MyVerticallyCenteredModal({ pname, ...props }) {
     const [message, setMessage] = useState('');
     const [chatHistory, setChatHistory] = useState([
-        { sender: 'Bot', message: 'Hi, please clarify few things about the design.' }
-       
+        { sender: 'Bot', message: `Hi am co pilot, ask me anything. `}
+
     ]);
     console.log(pname);
 
     const handleMessageChange = (event) => {
         setMessage(event.target.value);
     };
-   
+
 
 
     const sendMessage = async () => {
-        // console.log(   "working can be added in the api ",pname);
+     
         try {
-            const headers={"session-id": sessionStorage.getItem("sessionId")};
-           
-            // console.log(   "working can be added in the api ",pname);
+            const headers = { "session-id": sessionStorage.getItem("sessionId") };
+
+
             setChatHistory([...chatHistory, { sender: 'User', message }]);
-            const response = await axios.post(`https://copilot.waysaheadglobal.com/api/${pname}`, { user_input: message },{headers});
+            const response = await axios.post(`https://copilot.waysaheadglobal.com/api/${pname}`, { user_input: message }, { headers });
 
 
-            // setChatHistory([...chatHistory, { sender: 'User', message }]);
             console.log(response);
-            // setChatHistory([...chatHistory, { sender: 'Bot', message: response.data.response }]);
-            setChatHistory([...chatHistory, {sender: "User", message}, {sender: "Bot", message: response.data.response}])
+ 
+            setChatHistory([...chatHistory, { sender: "User", message }, { sender: "Bot", message: response.data.response }])
 
         } catch (error) {
             console.error('Error sending message:', error);
-          
+
         }
 
 
@@ -73,9 +74,25 @@ function MyVerticallyCenteredModal({ pname, ...props}) {
             {...props}
             size="lg"
             aria-labelledby="contained-modal-title-vcenter"
-            centered>
-            <Modal.Body>
-                <button type="button" className="btn-close" onClick={props.onHide} style={{ backgroundColor: '#FFFFFF' }}></button>
+            centered
+            
+                style={{ 
+              
+                // backgroundColor: '#001A23E5'
+      }}
+               
+        
+            
+            >
+            <Modal.Body
+              style={{ 
+                border: '3px solid #00B0f0',
+                borderRadius:'30px ',
+                background: '#001A23E5',
+      }}
+            
+            >
+                <button className="btn-close" onClick={props.onHide} style={{ backgroundColor: '#FFFFFF' }}></button>
                 <div className="chat_msg_cont">
                     <div className="chat_prof_head">
                         <h3>{pname}</h3>
@@ -87,9 +104,9 @@ function MyVerticallyCenteredModal({ pname, ...props}) {
                                     <div key={index} className={`chat-mss ${chat.sender === 'User' ? 'rply-mss' : 'user-mss'}`}>
                                         <ul>
                                             <li>
-                                            <span><img src={chat.sender === 'User' ? user : bot} alt="" /></span>
+                                                <span><img src={chat.sender === 'User' ? user : bot} alt="" /></span>
 
-                                                   <p>{chat.message}</p>
+                                                <p>{chat.message}</p>
                                             </li>
                                         </ul>
                                     </div>
@@ -111,21 +128,22 @@ function MyVerticallyCenteredModal({ pname, ...props}) {
                             </div>
                             <div className="chat-box">
                                 <form name="chatform" id="send-message" onSubmit={(e) => { e.preventDefault(); sendMessage(); }}>
-                                    <input  type="text" placeholder="Ask me anything" className="msg_int_style" id="message" value={message} onChange={handleMessageChange} style={{ color: 'white' }}></input>
+                                    <input type="text" placeholder="Ask me anything!" className="msg_int_style" id="message" value={message} onChange={handleMessageChange} style={{ color: '##00B0F0' }}></input>
                                 </form>
                             </div>
                             <div className="sent-btn-emoji">
-                                <ul>
-                                    <li>
+                                
+                                   
                                         <a onClick={sendMessage}>
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="34" viewBox="0 0 30 34" fill="none">
+                                            {/* <svg xmlns="http://www.w3.org/2000/svg" width="30" height="34" viewBox="0 0 30 34" fill="none">
                                                 <g clip-path="url(#clip0_15840_4181)">
                                                     <path d="M26.0433 16.9706C26.043 16.8278 26.0078 16.688 25.9417 16.5678C25.8756 16.4475 25.7815 16.3517 25.6703 16.2917L12.0229 8.86712C11.9039 8.80467 11.7713 8.78591 11.6429 8.81335C11.5145 8.84078 11.3963 8.91311 11.304 9.02073C11.2117 9.12834 11.1496 9.26615 11.1261 9.41585C11.1026 9.56555 11.1186 9.72005 11.1722 9.85884L13.5196 16.2334L19.297 16.2228L19.297 17.7183L13.5014 17.7183L11.1586 24.0982C11.1076 24.2362 11.0934 24.3888 11.1177 24.5363C11.1421 24.6838 11.2038 24.8194 11.295 24.9255C11.3889 25.0305 11.5078 25.0999 11.6361 25.1245C11.7644 25.1491 11.8961 25.1278 12.0138 25.0634L25.6612 17.6388C25.7727 17.5811 25.8678 17.4876 25.9355 17.3693C26.0031 17.251 26.0405 17.1127 26.0433 16.9706Z" fill="white" />
                                                 </g>
-                                            </svg>
+                                            </svg> */}
+                                            <img src={send} className='send-btn'></img>
                                         </a>
-                                    </li>
-                                </ul>
+                                      
+                                
                             </div>
                         </div>
                     </div>
@@ -138,8 +156,10 @@ function MyVerticallyCenteredModal({ pname, ...props}) {
 
 
 export const Dashboard = () => {
-    const [modalShow, setModalShow] = React.useState(false);
+    // const [modalShow, setModalShow] = React.useState(false);
     const [apiName, setApiName] = useState("");
+    // const [selectedKey, setSelectedKey] = useState(null);
+    const [modals, setModals] = useState([]);
 
 
     const handleSubmit = (event) => {
@@ -148,7 +168,7 @@ export const Dashboard = () => {
 
     };
 
-    
+
 
     useEffect(() => {
 
@@ -158,62 +178,191 @@ export const Dashboard = () => {
             const data = await response.text();
             sessionStorage.setItem("sessionId", data);
         }
-        if(!sessionStorage.getItem("sessionId")){
+        if (!sessionStorage.getItem("sessionId")) {
             generateSessionId();
         }
-     
-    }, [])
-    const handleChatClick = (name) => {
-        
-        setModalShow(true);
-      
-        console.log("Clicked person's name:", name);
-        setApiName(name);
-       
 
+    }, [])
+    // const handleChatClick = (pname,key) => {
+
+    //     setModalShow(true);
+
+    //     console.log("Clicked person's name:",pname);
+    //     setApiName(pname);
+    //     setSelectedKey(key);
+    //     console.log("Clicked person's key:",key);
+
+
+    // };
+    
+    const handleChatClick = (pname) => {
+        const newModal = {
+            pname: pname,
+            // selectedKey: key,
+            show: true
+        };
+        setModals([...modals, newModal]);
+        setApiName(pname);
     };
 
+    const onHideModal = (index) => {
+        const updatedModals = [...modals];
+        updatedModals.splice(index, 1);
+        setModals(updatedModals);
+    };
 
+    // Render all modals
+   
+
+
+
+    const rowData = [
+        [
+            {
+                imageSrc: p3,
+                rank: '#01',
+                pname: 'Rupam',
+                ptitle: 'CEO',
+                prating: "⭐⭐⭐⭐⭐",
+                
+            },
+            {
+                imageSrc: p4,
+                rank: '#02',
+                pname: 'Vishnu',
+                ptitle: 'Data Scientist',
+                prating: "⭐⭐⭐⭐⭐",
+                
+
+            },
+            {
+                imageSrc: g2,
+                rank: '#03',
+                pname: 'Akshayaa Easwaran',
+                ptitle: 'UI/UX Designer',
+                prating: "⭐⭐⭐⭐⭐",
+                
+            },
+            {
+                imageSrc: p4,
+                rank: '#04',
+                pname: 'Prabhat Ranjan',
+                ptitle: 'web Developer',
+                prating: "⭐⭐⭐⭐⭐",
+             
+            },
+            
+        ],
+        [
+            {
+                imageSrc: g1,
+                rank: '#05',
+                pname: 'Varsha',
+                ptitle: 'UI/UX Designer',
+                prating: "⭐⭐⭐⭐⭐",
+               
+            },
+            {
+                imageSrc: g2,
+                rank: '#06',
+                pname: 'Monica',
+                ptitle: 'Marketing',
+                prating: "⭐⭐⭐⭐⭐",
+               
+            },
+            {
+                imageSrc: p1,
+                rank: '#07',
+                pname: 'Anil',
+                ptitle: 'dotnet Developer',
+                prating: "⭐⭐⭐⭐⭐",
+             
+            },
+            {
+                imageSrc: g2,
+                rank: '#08',
+                pname: 'Rudrakshi Goush',
+                ptitle: 'Project coordinator',
+                prating: "⭐⭐⭐⭐⭐",
+               
+            },
+        
+        ],
+        
+    ];
     
+
+
+
 
     return (
         <>
-            <div className='dashboard-main'>
 
-                <div className='side-bar'>
-                    <Button className='side-bar-add'>
-                        <IoAdd style={{ width: '50px', height: '50px', color: '#FFFFFF' }} />
-                    </Button>
-                    <AiFillHome className='home-icon' />
-                    <IoPerson className='profile-icon' />
-                    <IoSettingsSharp className='settings-icon' />
 
-                </div>
-                <Container fluid className='dashboard-content'>
-                    <div className='nav-bar'>
-                        <div className='dash-btn'>
-                            <Button href="#" className='all-avatar'>All Avatar</Button>
-                            <Button href="#" className='profile' onClick={handleSubmit}>profile</Button>
-                        </div>
-                        <div type="text" className='search-bar'><CiSearch className='search-icon' />start searching Avatar here ...</div>
+
+            <div>
+                <div className='dashboard-main'>
+
+                    <div className='side-bar'>
+                        <Button className='side-bar-add'>
+                            <IoAdd style={{ width: '50px', height: '50px', color: '#FFFFFF' }} />
+                        </Button>
+                        <AiFillHome className='home-icon' />
+                        <IoPerson className='profile-icon' />
+                        <IoSettingsSharp className='settings-icon' />
+
                     </div>
-                    <Container fluid className='domain-content'>
+                    <Container fluid className='dashboard-content'>
+                        <div className='nav-bar'>
+                            <div className='dash-btn'>
+                                <Button href="#" className='all-avatar'>All Avatar</Button>
+                                <Button href="#" className='profile' onClick={handleSubmit}>profile</Button>
+                            </div>
+                            <div type="text" className='search-bar'><CiSearch className='search-icon' />start searching Avatar here ...</div>
+                        </div>
+                        <Container fluid className='domain-content'>
 
-                        <div className='user-data'>
-                            <span className='user-name'>
-                                Hi Anirban Chatterjee
-                            </span>
-                            <span className='user-title'>
-                                Data scientist
-                            </span>
+                            <div className='user-data'>
+                                <span className='user-name'>
+                                    Hi Anirban Chatterjee
+                                </span>
+                                <span className='user-title'>
+                                    Data scientist
+                                </span>
 
+                            </div>
+                            {rowData.map((row, index) => (
+                                <Row className="dash-row" key={index}>
+                                    {row.map((person, personIndex) => (
+                                        <Col lg={3} md={6} sm={6} className="dash-column" key={personIndex}>
+                                            <CardData
+                                                imageSrc={person.imageSrc}
+                                                rank={person.rank}
+                                                pname={person.pname}
+                                                ptitle={person.ptitle}
+                                                prating={person.prating}
+                                                onChatClick={() => handleChatClick(person.pname, personIndex)}
+                                                key={personIndex}
+                                            />
+                                        </Col>
+                                    ))}
+                                </Row>
+                            ))}
+                            </Container>
+
+                    </Container>
+
+
+            </div> 
                         </div>
 
 
+                        {/* 
 
-{/* <Container className='wrap'> */}
+
+\
                         <Row className="dash-row">
-                            {/* First Row */}
+                          
 
 
                             <Col lg={3} md={6} sm={6} className="dash-column">
@@ -232,20 +381,6 @@ export const Dashboard = () => {
                                         </div>
                                     </div>
                                 </div>
-{/*                             
-                             <Card
-                             imageSrc={p3}
-                             pname="Rupam"
-                             ptitle="CEO"
-                             prating="⭐⭐⭐⭐⭐"
-                             onChatClick={handleChatClick}
-                           
-                             /> */}
-
-
-
-
-
 
 
                             </Col>
@@ -265,149 +400,29 @@ export const Dashboard = () => {
                                         </div>
                                     </div>
                                 </div>
-                            {/* <Card
-                             imageSrc={p4}
-                             pname={"Data scientist"}
-                             ptitle="vishnu"
-                             prating="⭐⭐⭐⭐⭐"
-                             onChatClick={handleChatClick}
-                            
-                             /> */}
+                           
 
 
 
-
-                            </Col>
-                            <Col lg={3} md={6}  sm={6} className="dash-column">
-                                <div className='img-data'>
-
-                                    <div className='image-div'>  <Image fluid src={p2} rounded style={{ borderRadius: '30px', }} /><span className='rank'>#03</span></div>
-
-                                    <div className='person-detail'>
-                                        <div className='name-title'>
-                                            <span className='person-name'>Akshayaa Easwaran</span>
-                                            <span className='person-title'>UI/UX Designer</span>
-                                        </div>
-                                        <div className='rating-chat'>
-                                            <div className='stars'>⭐⭐⭐⭐⭐</div>
-                                            <Button className='chat-btn'>CHAT </Button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </Col>
-                            <Col lg={3} md={6}  sm={6} className="dash-column">
-                                <div className='img-data'>
-
-                                    <div className='image-div'>  <Image fluid src={g2} rounded style={{ borderRadius: '30px', }} /><span className='rank'>#04</span></div>
-
-                                    <div className='person-detail'>
-                                        <div className='name-title'>
-                                            <span className='person-name'>Varsha</span>
-                                            <span className='person-title'>UI/UX Designer</span>
-                                        </div>
-                                        <div className='rating-chat'>
-                                            <div className='stars'>⭐⭐⭐⭐⭐</div>
-                                            <Button className='chat-btn'>CHAT </Button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </Col>
-                        </Row>
-                        {/* Second Row */}
-                        <Row className='dash-row'>
-                            <Col lg={3} md={6}  sm={6}className="dash-column">
-                                <div className='img-data'>
-
-                                    <div className='image-div'>  <Image fluid src={g1} rounded style={{ borderRadius: '30px', }} /><span className='rank'>#05</span></div>
-
-                                    <div className='person-detail'>
-                                        <div className='name-title'>
-                                            <span className='person-name'>Prabhat Ranjan</span>
-                                            <span className='person-title'>Web Developer</span>
-                                        </div>
-                                        <div className='rating-chat'>
-                                            <div className='stars'>⭐⭐⭐⭐⭐</div>
-                                            <Button className='chat-btn'>CHAT</Button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </Col>
-                            <Col lg={3} md={6}  sm={6}className="dash-column">
-                                <div className='img-data'>
-
-                                    <div className='image-div'>  <Image fluid src={g2} rounded style={{ borderRadius: '30px', }} /><span className='rank'>#06</span></div>
-
-                                    <div className='person-detail'>
-                                        <div className='name-title'>
-                                            <span className='person-name'>Rudrakshi Ghosh</span>
-                                            <span className='person-title'>Project coordinator</span>
-                                        </div>
-                                        <div className='rating-chat'>
-                                            <div className='stars'>⭐⭐⭐⭐⭐</div>
-                                            <Button className='chat-btn'>CHAT</Button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </Col>
-                            <Col lg={3} md={6}  sm={6} className="dash-column">
-                                <div className='img-data'>
-
-                                    <div className='image-div'>  <Image fluid src={g1} rounded style={{ borderRadius: '30px', }} /><span className='rank'>#07</span></div>
-
-                                    <div className='person-detail'>
-                                        <div className='name-title'>
-                                            <span className='person-name'>Monica</span>
-                                            <span className='person-title'>Marketing</span>
-                                        </div>
-                                        <div className='rating-chat'>
-                                            <div className='stars'>⭐⭐⭐⭐⭐</div>
-                                            <Button className='chat-btn'>CHAT </Button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </Col>
-                            <Col lg={3} md={6}  sm={6}className="dash-column">
-                                <div className='img-data'>
-
-                                    <div className='image-div'>  <Image fluid src={p1} rounded style={{ borderRadius: '30px', }} /><span className='rank'>#08</span></div>
-
-                                    <div className='person-detail'>
-                                        <div className='name-title'>
-                                            <span className='person-name'>Anil</span>
-                                            <span className='person-title'>dotnet developer</span>
-                                        </div>
-                                        <div className='rating-chat'>
-                                            <div className='stars'>⭐⭐⭐⭐⭐</div>
-                                            <Button className='chat-btn'>CHAT</Button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </Col>
-                        </Row>
-
-</Container>
-
-                    </Container>
+*/}
+                        {/* <MyVerticallyCenteredModal
+                            show={modalShow}
+                            onHide={() => setModalShow(false)}
+                        pname={apiName}
+                        selectedKey={selectedKey}
+                        /> */}
+                        {modals.map((modal, index) => (
+                <MyVerticallyCenteredModal
+                    key={index}
+                    show={modal.show}
+                    onHide={() => onHideModal(index)}
+                    pname={modal.pname}
+                    selectedKey={modal.selectedKey}
+                    chatHistory={modal.chatHistory}
+                />
+            ))}
 
 
-
-
-
-
-
-
-                {/* </Container> */}
-
-
-
-
-            </div>
-            <MyVerticallyCenteredModal
-                show={modalShow}
-                onHide={() => setModalShow(false)}
-                pname={apiName}
-/>
-
-        </>
-    );
+                    </>
+                    );
 }

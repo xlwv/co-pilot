@@ -1,41 +1,31 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Dashboard.css';
-import Button from 'react-bootstrap/Button';
-import Image from 'react-bootstrap/Image';
+import { Col, Image, Button } from 'react-bootstrap';
 
-
-const UserCard = ({ imageSrc, pname, ptitle, prating, onChatClick }) => {
-     
-
-     const handleChatClick = () => {
-        onChatClick(pname);  
-        
-    };
-    console.log("Received pname prop:", pname);
-    
-
-
-
+const CardData = ({ imageSrc, rank, pname, ptitle, prating, onChatClick, }) => {
     return (
-        <div className='img-data'>
-            <div className='image-div'>
-                <Image fluid src={imageSrc} rounded style={{ borderRadius: '30px' }} className='user-photo' />
-                <span className='rank'>#01</span>
-            </div>
-            <div className='person-detail'>
-                <div className='name-title'>
-                    <span className='person-name'>{pname}</span>
-                    <span className='person-title'>{ptitle}</span>
+       
+            <div className='img-data'>
+                <div className='image-div'>
+                    <Image fluid src={imageSrc} rounded style={{ borderRadius: '30px' }} className='user-photo' />
+                    <span className='rank'>
+                        {rank}
+                    </span>
                 </div>
-                <div className='rating-chat'>
-                    <div className='stars'>{prating}</div>
-                    <Button className='chat-btn chat-btn1' onClick={handleChatClick}>CHAT</Button>
+                <div className='person-detail'>
+                    <div className='name-title'>
+                        <span className='person-name'>{pname}</span>
+                        <span className='person-title'>{ptitle}</span>
+                    </div>
+                    <div className='rating-chat'>
+                        <div className='stars'>{prating}</div>
+                        <Button className='chat-btn chat-btn1' onClick={() => onChatClick(pname)}>CHAT</Button>
+                    </div>
                 </div>
             </div>
-        </div>
+       
     );
 }
 
-export default UserCard;
+export default CardData;
