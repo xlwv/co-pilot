@@ -171,6 +171,12 @@ align-items: center;
 
    
 }
+.search-logout
+{
+ display: flex;
+
+}
+
 .search-bar{
 
 
@@ -194,6 +200,11 @@ color: #767676;
 margin-right: 10px;
 
   
+}
+.search-bar input[type="text"]
+{
+  border: none;
+  outline: none;
 }
 .dash-logout
 {
@@ -436,6 +447,12 @@ border-radius: 30px;
  .search-bar
  {
   margin-top:15px;
+  
+ }
+ .search-logout
+ {
+  flex-direction: column;
+
  }
  .dash-logout
  {
