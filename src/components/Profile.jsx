@@ -124,7 +124,7 @@ export const Profile = () => {
           <div className='user-information'>
             <div className='blue'>
               <Container fluid className='person-photo'>
-                <Image fluid src={Avatar} className='person-pic'></Image>
+                <Image fluid src={Avatar} className='person-pic' ></Image>
                 <Button className='pic-edit'>Edit</Button>
               </Container>
               <span className='your-profile'>Your Profile</span>
