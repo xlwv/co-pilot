@@ -67,7 +67,7 @@ function SuccessfullModal(props) {
 
 export const Profile = () => {
 
-
+  const navigate = useNavigate();
   const [selectedFile, setSelectedFile] = useState(null);
   const [modalShow, setModalShow] = React.useState(false);
   const handleFileChange = (event) => {
@@ -86,10 +86,11 @@ export const Profile = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     window.location.href = '/dashboard';
-
-
   };
 
+  const logouthere=()=>{
+    navigate('/')
+  }
 
 
 
@@ -116,8 +117,8 @@ export const Profile = () => {
               <Button href="#" className='profile-profile'>profile</Button>
             </div>
             <div className='search-login'>
-              <div type="text" className='profile-search-bar'><CiSearch className='profile-search-icon' />start searching Avatar here ...</div>
-              <Button href="#" className='profile-logout'>Logout</Button>
+              {/* <div type="text" className='profile-search-bar'><CiSearch className='profile-search-icon' />start searching Avatar here ...</div> */}
+              <Button  className='profile-logout' onClick={logouthere}>Logout</Button>
             </div>
           </div>
           <div className='user-information'>

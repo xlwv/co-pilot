@@ -229,6 +229,7 @@ const rowData = [
 
 export const Dashboard = () => {
     // const [modalShow, setModalShow] = React.useState(false);
+    const navigate = useNavigate();
     const [apiName, setApiName] = useState("");
     // const [selectedKey, setSelectedKey] = useState(null);
     const [modals, setModals] = useState([]);
@@ -245,7 +246,6 @@ export const Dashboard = () => {
             return person.pname.toLowerCase().includes(searchTerm.toLowerCase());
         });
         setData(filteredData);
-        console.log(data)
     }, [searchTerm]);
 
 
@@ -255,6 +255,9 @@ export const Dashboard = () => {
         window.location.href = '/Profile';
 
     };
+    const logouthere=()=>{
+        navigate('/')
+      }
 
 
 
@@ -331,7 +334,7 @@ export const Dashboard = () => {
                   </div>
 
 
-              <Button href="#" className='dash-logout'>Logout</Button>
+              <Button  className='dash-logout' onClick={logouthere}>Logout</Button>
             </div>
                         </div>
                         <Container fluid className='domain-content'>
