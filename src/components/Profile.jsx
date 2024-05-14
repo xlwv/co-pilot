@@ -107,7 +107,7 @@ export const Profile = () => {
           </Button>
           <AiFillHome className='profile-home-icon' />
           <IoPerson className='profile-profile-icon' />
-          <IoSettingsSharp className='profile-settings-icon' />
+          {/* <IoSettingsSharp className='profile-settings-icon' /> */}
 
         </div>
         <Container fluid className='profile-content'>
@@ -125,7 +125,7 @@ export const Profile = () => {
             <div className='blue'>
               <Container fluid className='person-photo'>
                 <Image fluid src={Avatar} className='person-pic'></Image>
-                <Button className='pic-edit'>Edit</Button>
+                {/* <Button className='pic-edit'>Edit</Button> */}
               </Container>
               <span className='your-profile'>Your Profile</span>
 

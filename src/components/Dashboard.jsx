@@ -318,7 +318,7 @@ export const Dashboard = () => {
                         </Button>
                         <AiFillHome className='home-icon' />
                         <IoPerson className='profile-icon' />
-                        <IoSettingsSharp className='settings-icon' />
+                        {/* <IoSettingsSharp className='settings-icon' /> */}
 
                     </div>
                     <Container fluid className='dashboard-content'>
@@ -327,9 +327,9 @@ export const Dashboard = () => {
                                 <Button href="#" className='all-avatar'>All Avatar</Button>
                                 <Button href="#" className='profile' onClick={handleSubmit}>profile</Button>
                             </div>
-                            <div className='search-login'>
-              <div type="text" className='profile-search-bar'>
-                <CiSearch className='profile-search-icon' onChange={handleSearch} />
+                            <div className='search-logout'>
+              <div type="text" className='search-bar'>
+                <CiSearch className='search-icon' onChange={handleSearch} />
                 <input name={searchTerm} value={searchTerm}  onChange={handleSearch} className='searchbox' type="text" placeholder='search Avatar here ...' />
                   </div>
 
