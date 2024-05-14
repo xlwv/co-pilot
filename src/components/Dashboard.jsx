@@ -224,43 +224,6 @@ const rowData = [
        
     },
 
-
-
-    {
-        imageSrc: g1,
-        rank: '#05',
-        pname: 'Varsha',
-        ptitle: 'UI/UX Designer',
-        prating: "⭐⭐⭐⭐⭐",
-       
-    },
-    {
-        imageSrc: g2,
-        rank: '#06',
-        pname: 'Monica',
-        ptitle: 'Marketing',
-        prating: "⭐⭐⭐⭐⭐",
-       
-    },
-    {
-        imageSrc: p1,
-        rank: '#07',
-        pname: 'Anil',
-        ptitle: 'dotnet Developer',
-        prating: "⭐⭐⭐⭐⭐",
-     
-    },
-    {
-        imageSrc: g2,
-        rank: '#08',
-        pname: 'Rudrakshi Goush',
-        ptitle: 'Project coordinator',
-        prating: "⭐⭐⭐⭐⭐",
-       
-    },
-
-
-
 ];
 
 
@@ -269,17 +232,23 @@ export const Dashboard = () => {
     const [apiName, setApiName] = useState("");
     // const [selectedKey, setSelectedKey] = useState(null);
     const [modals, setModals] = useState([]);
-    const [searchTerm, setSearchTerm] = useState('');
-    const [data, setData] = useState(rowData); // Your array of data
-  
-    const handleSearch = (e) => {
-      setSearchTerm(e.target.value);
+    const [data, setData] = useState(rowData);
+    const [searchTerm, setSearchTerm] = useState("");
+         
+    const handleSearch = (event) => {
+        event.preventDefault()
+        setSearchTerm(event.target.value);
     };
-  
- 
-    const filteredData = data.filter((item) =>
-      item.pname.toLowerCase().includes(searchTerm.toLowerCase())
-    );
+
+    useEffect(() => {
+        const filteredData = rowData.filter((person) => {
+            return person.pname.toLowerCase().includes(searchTerm.toLowerCase());
+        });
+        setData(filteredData);
+        console.log(data)
+    }, [searchTerm]);
+
+
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -331,123 +300,6 @@ export const Dashboard = () => {
     };
 
     // Render all modals
-   
-
-
-
-    // const rowData = [
-        
-    //         {
-    //             imageSrc: p3,
-    //             rank: '#01',
-    //             pname: 'Rupam',
-    //             ptitle: 'CEO',
-    //             prating: "⭐⭐⭐⭐⭐",
-                
-    //         },
-    //         {
-    //             imageSrc: p4,
-    //             rank: '#02',
-    //             pname: 'Vishnu',
-    //             ptitle: 'Data Scientist',
-    //             prating: "⭐⭐⭐⭐⭐",
-                
-
-    //         },
-    //         {
-    //             imageSrc: g2,
-    //             rank: '#03',
-    //             pname: 'Akshayaa Easwaran',
-    //             ptitle: 'UI/UX Designer',
-    //             prating: "⭐⭐⭐⭐⭐",
-                
-    //         },
-    //         {
-    //             imageSrc: p4,
-    //             rank: '#04',
-    //             pname: 'Prabhat Ranjan',
-    //             ptitle: 'web Developer',
-    //             prating: "⭐⭐⭐⭐⭐",
-             
-    //         },
-            
-        
-        
-    //         {
-    //             imageSrc: g1,
-    //             rank: '#05',
-    //             pname: 'Varsha',
-    //             ptitle: 'UI/UX Designer',
-    //             prating: "⭐⭐⭐⭐⭐",
-               
-    //         },
-    //         {
-    //             imageSrc: g2,
-    //             rank: '#06',
-    //             pname: 'Monica',
-    //             ptitle: 'Marketing',
-    //             prating: "⭐⭐⭐⭐⭐",
-               
-    //         },
-    //         {
-    //             imageSrc: p1,
-    //             rank: '#07',
-    //             pname: 'Anil',
-    //             ptitle: 'dotnet Developer',
-    //             prating: "⭐⭐⭐⭐⭐",
-             
-    //         },
-    //         {
-    //             imageSrc: g2,
-    //             rank: '#08',
-    //             pname: 'Rudrakshi Goush',
-    //             ptitle: 'Project coordinator',
-    //             prating: "⭐⭐⭐⭐⭐",
-               
-    //         },
-        
-        
-
-    //         {
-    //             imageSrc: g1,
-    //             rank: '#05',
-    //             pname: 'Varsha',
-    //             ptitle: 'UI/UX Designer',
-    //             prating: "⭐⭐⭐⭐⭐",
-               
-    //         },
-    //         {
-    //             imageSrc: g2,
-    //             rank: '#06',
-    //             pname: 'Monica',
-    //             ptitle: 'Marketing',
-    //             prating: "⭐⭐⭐⭐⭐",
-               
-    //         },
-    //         {
-    //             imageSrc: p1,
-    //             rank: '#07',
-    //             pname: 'Anil',
-    //             ptitle: 'dotnet Developer',
-    //             prating: "⭐⭐⭐⭐⭐",
-             
-    //         },
-    //         {
-    //             imageSrc: g2,
-    //             rank: '#08',
-    //             pname: 'Rudrakshi Goush',
-    //             ptitle: 'Project coordinator',
-    //             prating: "⭐⭐⭐⭐⭐",
-               
-    //         },
-        
-        
-        
-    // ];
-    
-
-
-
 
     return (
         <>
@@ -475,7 +327,7 @@ export const Dashboard = () => {
                             <div className='search-login'>
               <div type="text" className='profile-search-bar'>
                 <CiSearch className='profile-search-icon' onChange={handleSearch} />
-                <input  className='searchbox' type="text" placeholder='search Avatar here ...' />
+                <input name={searchTerm} value={searchTerm}  onChange={handleSearch} className='searchbox' type="text" placeholder='search Avatar here ...' />
                   </div>
 
 
