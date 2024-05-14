@@ -113,9 +113,11 @@ align-items: center;
 .img-data {
   animation: slideInFromRight 1.2s ease-in-out; 
 }
-.searchbox{
+.profile-search-bar input[type="text"] {
+ /* Ensure space for the icon */
   border: none;
-  outline: 'none'
+  outline: none;
+  
 }
 
 .searchbox:active{
