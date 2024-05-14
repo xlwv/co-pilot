@@ -153,6 +153,115 @@ function MyVerticallyCenteredModal({ pname, ...props }) {
     );
 }
 
+const rowData = [
+        
+    {
+        imageSrc: p3,
+        rank: '#01',
+        pname: 'Rupam',
+        ptitle: 'CEO',
+        prating: "⭐⭐⭐⭐⭐",
+        
+    },
+    {
+        imageSrc: p4,
+        rank: '#02',
+        pname: 'Vishnu',
+        ptitle: 'Data Scientist',
+        prating: "⭐⭐⭐⭐⭐",
+        
+
+    },
+    {
+        imageSrc: g2,
+        rank: '#03',
+        pname: 'Akshayaa Easwaran',
+        ptitle: 'UI/UX Designer',
+        prating: "⭐⭐⭐⭐⭐",
+        
+    },
+    {
+        imageSrc: p4,
+        rank: '#04',
+        pname: 'Prabhat Ranjan',
+        ptitle: 'web Developer',
+        prating: "⭐⭐⭐⭐⭐",
+     
+    },
+    
+
+
+    {
+        imageSrc: g1,
+        rank: '#05',
+        pname: 'Varsha',
+        ptitle: 'UI/UX Designer',
+        prating: "⭐⭐⭐⭐⭐",
+       
+    },
+    {
+        imageSrc: g2,
+        rank: '#06',
+        pname: 'Monica',
+        ptitle: 'Marketing',
+        prating: "⭐⭐⭐⭐⭐",
+       
+    },
+    {
+        imageSrc: p1,
+        rank: '#07',
+        pname: 'Anil',
+        ptitle: 'dotnet Developer',
+        prating: "⭐⭐⭐⭐⭐",
+     
+    },
+    {
+        imageSrc: g2,
+        rank: '#08',
+        pname: 'Rudrakshi Goush',
+        ptitle: 'Project coordinator',
+        prating: "⭐⭐⭐⭐⭐",
+       
+    },
+
+
+
+    {
+        imageSrc: g1,
+        rank: '#05',
+        pname: 'Varsha',
+        ptitle: 'UI/UX Designer',
+        prating: "⭐⭐⭐⭐⭐",
+       
+    },
+    {
+        imageSrc: g2,
+        rank: '#06',
+        pname: 'Monica',
+        ptitle: 'Marketing',
+        prating: "⭐⭐⭐⭐⭐",
+       
+    },
+    {
+        imageSrc: p1,
+        rank: '#07',
+        pname: 'Anil',
+        ptitle: 'dotnet Developer',
+        prating: "⭐⭐⭐⭐⭐",
+     
+    },
+    {
+        imageSrc: g2,
+        rank: '#08',
+        pname: 'Rudrakshi Goush',
+        ptitle: 'Project coordinator',
+        prating: "⭐⭐⭐⭐⭐",
+       
+    },
+
+
+
+];
 
 
 export const Dashboard = () => {
@@ -160,7 +269,17 @@ export const Dashboard = () => {
     const [apiName, setApiName] = useState("");
     // const [selectedKey, setSelectedKey] = useState(null);
     const [modals, setModals] = useState([]);
-
+    const [searchTerm, setSearchTerm] = useState('');
+    const [data, setData] = useState(rowData); // Your array of data
+  
+    const handleSearch = (e) => {
+      setSearchTerm(e.target.value);
+    };
+  
+ 
+    const filteredData = data.filter((item) =>
+      item.pname.toLowerCase().includes(searchTerm.toLowerCase())
+    );
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -216,115 +335,115 @@ export const Dashboard = () => {
 
 
 
-    const rowData = [
-        [
-            {
-                imageSrc: p3,
-                rank: '#01',
-                pname: 'Rupam',
-                ptitle: 'CEO',
-                prating: "⭐⭐⭐⭐⭐",
+    // const rowData = [
+        
+    //         {
+    //             imageSrc: p3,
+    //             rank: '#01',
+    //             pname: 'Rupam',
+    //             ptitle: 'CEO',
+    //             prating: "⭐⭐⭐⭐⭐",
                 
-            },
-            {
-                imageSrc: p4,
-                rank: '#02',
-                pname: 'Vishnu',
-                ptitle: 'Data Scientist',
-                prating: "⭐⭐⭐⭐⭐",
+    //         },
+    //         {
+    //             imageSrc: p4,
+    //             rank: '#02',
+    //             pname: 'Vishnu',
+    //             ptitle: 'Data Scientist',
+    //             prating: "⭐⭐⭐⭐⭐",
                 
 
-            },
-            {
-                imageSrc: g2,
-                rank: '#03',
-                pname: 'Akshayaa Easwaran',
-                ptitle: 'UI/UX Designer',
-                prating: "⭐⭐⭐⭐⭐",
+    //         },
+    //         {
+    //             imageSrc: g2,
+    //             rank: '#03',
+    //             pname: 'Akshayaa Easwaran',
+    //             ptitle: 'UI/UX Designer',
+    //             prating: "⭐⭐⭐⭐⭐",
                 
-            },
-            {
-                imageSrc: p4,
-                rank: '#04',
-                pname: 'Prabhat Ranjan',
-                ptitle: 'web Developer',
-                prating: "⭐⭐⭐⭐⭐",
+    //         },
+    //         {
+    //             imageSrc: p4,
+    //             rank: '#04',
+    //             pname: 'Prabhat Ranjan',
+    //             ptitle: 'web Developer',
+    //             prating: "⭐⭐⭐⭐⭐",
              
-            },
+    //         },
             
-        ],
-        [
-            {
-                imageSrc: g1,
-                rank: '#05',
-                pname: 'Varsha',
-                ptitle: 'UI/UX Designer',
-                prating: "⭐⭐⭐⭐⭐",
+        
+        
+    //         {
+    //             imageSrc: g1,
+    //             rank: '#05',
+    //             pname: 'Varsha',
+    //             ptitle: 'UI/UX Designer',
+    //             prating: "⭐⭐⭐⭐⭐",
                
-            },
-            {
-                imageSrc: g2,
-                rank: '#06',
-                pname: 'Monica',
-                ptitle: 'Marketing',
-                prating: "⭐⭐⭐⭐⭐",
+    //         },
+    //         {
+    //             imageSrc: g2,
+    //             rank: '#06',
+    //             pname: 'Monica',
+    //             ptitle: 'Marketing',
+    //             prating: "⭐⭐⭐⭐⭐",
                
-            },
-            {
-                imageSrc: p1,
-                rank: '#07',
-                pname: 'Anil',
-                ptitle: 'dotnet Developer',
-                prating: "⭐⭐⭐⭐⭐",
+    //         },
+    //         {
+    //             imageSrc: p1,
+    //             rank: '#07',
+    //             pname: 'Anil',
+    //             ptitle: 'dotnet Developer',
+    //             prating: "⭐⭐⭐⭐⭐",
              
-            },
-            {
-                imageSrc: g2,
-                rank: '#08',
-                pname: 'Rudrakshi Goush',
-                ptitle: 'Project coordinator',
-                prating: "⭐⭐⭐⭐⭐",
+    //         },
+    //         {
+    //             imageSrc: g2,
+    //             rank: '#08',
+    //             pname: 'Rudrakshi Goush',
+    //             ptitle: 'Project coordinator',
+    //             prating: "⭐⭐⭐⭐⭐",
                
-            },
+    //         },
         
-        ],
-        [
-            {
-                imageSrc: g1,
-                rank: '#05',
-                pname: 'Varsha',
-                ptitle: 'UI/UX Designer',
-                prating: "⭐⭐⭐⭐⭐",
+        
+
+    //         {
+    //             imageSrc: g1,
+    //             rank: '#05',
+    //             pname: 'Varsha',
+    //             ptitle: 'UI/UX Designer',
+    //             prating: "⭐⭐⭐⭐⭐",
                
-            },
-            {
-                imageSrc: g2,
-                rank: '#06',
-                pname: 'Monica',
-                ptitle: 'Marketing',
-                prating: "⭐⭐⭐⭐⭐",
+    //         },
+    //         {
+    //             imageSrc: g2,
+    //             rank: '#06',
+    //             pname: 'Monica',
+    //             ptitle: 'Marketing',
+    //             prating: "⭐⭐⭐⭐⭐",
                
-            },
-            {
-                imageSrc: p1,
-                rank: '#07',
-                pname: 'Anil',
-                ptitle: 'dotnet Developer',
-                prating: "⭐⭐⭐⭐⭐",
+    //         },
+    //         {
+    //             imageSrc: p1,
+    //             rank: '#07',
+    //             pname: 'Anil',
+    //             ptitle: 'dotnet Developer',
+    //             prating: "⭐⭐⭐⭐⭐",
              
-            },
-            {
-                imageSrc: g2,
-                rank: '#08',
-                pname: 'Rudrakshi Goush',
-                ptitle: 'Project coordinator',
-                prating: "⭐⭐⭐⭐⭐",
+    //         },
+    //         {
+    //             imageSrc: g2,
+    //             rank: '#08',
+    //             pname: 'Rudrakshi Goush',
+    //             ptitle: 'Project coordinator',
+    //             prating: "⭐⭐⭐⭐⭐",
                
-            },
+    //         },
         
-        ],
         
-    ];
+        
+    // ];
     
 
 
@@ -354,7 +473,12 @@ export const Dashboard = () => {
                                 <Button href="#" className='profile' onClick={handleSubmit}>profile</Button>
                             </div>
                             <div className='search-login'>
-              <div type="text" className='profile-search-bar'><CiSearch className='profile-search-icon' />search Avatar here ...</div>
+              <div type="text" className='profile-search-bar'>
+                <CiSearch className='profile-search-icon' onChange={handleSearch} />
+                <input  className='searchbox' type="text" placeholder='search Avatar here ...' />
+                  </div>
+
+
               <Button href="#" className='dash-logout'>Logout</Button>
             </div>
                         </div>
@@ -369,9 +493,9 @@ export const Dashboard = () => {
                                 </span>
 
                             </div>
-                            {rowData.map((row, index) => (
-                                <Row className="dash-row" key={index}>
-                                    {row.map((person, personIndex) => (
+                            
+                                <Row className="dash-row">
+                                    {data.map((person, personIndex) => (
                                         <Col lg={3} md={6} sm={6} className="dash-column" key={personIndex}>
                                             <CardData
                                                 imageSrc={person.imageSrc}
@@ -385,7 +509,7 @@ export const Dashboard = () => {
                                         </Col>
                                     ))}
                                 </Row>
-                            ))}
+                            
                             </Container>
 
                     </Container>

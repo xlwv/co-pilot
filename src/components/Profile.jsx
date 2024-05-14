@@ -50,7 +50,7 @@ function SuccessfullModal(props) {
             </button>
           </div>
           <div className='success-content'>
-            <Image src={check}></Image>
+            <Image  src={check}></Image>
             <span className='success-txt'>Document Uploaded Successfully</span>
           </div>
         </div>

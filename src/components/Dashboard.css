@@ -113,6 +113,14 @@ align-items: center;
 .img-data {
   animation: slideInFromRight 1.2s ease-in-out; 
 }
+.searchbox{
+  border: none;
+  outline: 'none'
+}
+
+.searchbox:active{
+  outline: 'none'
+}
 
 .profile
 {
