@@ -2,7 +2,7 @@
 {
 background-color:#EBF7FB ;
 width:100%;
-min-width: 450px;
+/* min-width: 450px; */
 padding-right:12px; ;
 display: flex;
 
@@ -148,6 +148,12 @@ align-items: center;
     margin-right: 20px;
    
 }
+.search-login
+{
+    display: flex;
+   
+    
+}
 .profile-search-bar{
 
 
@@ -171,6 +177,31 @@ color: #767676;
 
 
   
+}
+.profile-logout{
+    width: 120px;
+   
+    background: #1B3360;
+    
+    border-Radius:47.5px;
+    
+    color:#FFFFFF;
+margin-left:13px;
+    font-family: Montserrat;
+   border: none;
+    height: 50px;
+    text-align: center;
+    
+    justify-content: center;
+
+font-size: 20px;
+font-weight: 600;
+line-height: 18px;
+letter-spacing: 0.03em;
+
+display: flex;
+
+align-items: center;
 }
 .profile-search-icon
 
@@ -414,6 +445,14 @@ font-family: Montserrat;
     
       
     }
+    .profile-logout{
+
+
+        margin-top: 15px;
+        margin-left: 0px;
+         
+           
+         }
 
 
 }
@@ -425,6 +464,27 @@ font-family: Montserrat;
     margin-top:80px;
  
    
+}
+.profile-content{
+    width: 85%;
+}
+.user-information
+{
+width: 90%;
+margin-left: 0px;
+}
+.profile-nav-bar
+{
+    margin: 0px;
+    width:90% ;
+}
+.img-doc
+{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+
+ 
 }
 
 

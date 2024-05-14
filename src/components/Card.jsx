@@ -20,7 +20,7 @@ const CardData = ({ imageSrc, rank, pname, ptitle, prating, onChatClick, }) => {
                     </div>
                     <div className='rating-chat'>
                         <div className='stars'>{prating}</div>
-                        <Button className='chat-btn chat-btn1' onClick={() => onChatClick(pname)}>CHAT</Button>
+                        <button className='chat-btn chat-btn1 ' onClick={() => onChatClick(pname)}>CHAT</button>
                     </div>
                 </div>
             </div>

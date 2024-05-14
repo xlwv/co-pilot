@@ -39,16 +39,16 @@ function SuccessfullModal(props) {
 
 
       <Modal.Body className='profile-modal'>
-      
+
         {/* <button type="button" className="btn-close " onClick={props.onHide}  style={{ backgroundColor: '#FFFFFF' }} >
         </button> */}
-        
+
 
         <div className='success-main'>
           <div className=' profile-close'>
-        <button type="button" className="btn-close " onClick={props.onHide}  style={{ backgroundColor: '#FFFFFF', padding:'10px' }} >
-        </button>
-        </div>
+            <button type="button" className="btn-close " onClick={props.onHide} style={{ backgroundColor: '#FFFFFF', padding: '10px' }} >
+            </button>
+          </div>
           <div className='success-content'>
             <Image src={check}></Image>
             <span className='success-txt'>Document Uploaded Successfully</span>
@@ -115,7 +115,10 @@ export const Profile = () => {
               <Button href="#" className='profile-all-avatar' onClick={handleSubmit}>All Avatar</Button>
               <Button href="#" className='profile-profile'>profile</Button>
             </div>
-            <div type="text" className='profile-search-bar'><CiSearch className='profile-search-icon' />start searching Avatar here ...</div>
+            <div className='search-login'>
+              <div type="text" className='profile-search-bar'><CiSearch className='profile-search-icon' />start searching Avatar here ...</div>
+              <Button href="#" className='profile-logout'>Logout</Button>
+            </div>
           </div>
           <div className='user-information'>
             <div className='blue'>

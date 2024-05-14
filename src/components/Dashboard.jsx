@@ -288,6 +288,41 @@ export const Dashboard = () => {
             },
         
         ],
+        [
+            {
+                imageSrc: g1,
+                rank: '#05',
+                pname: 'Varsha',
+                ptitle: 'UI/UX Designer',
+                prating: "⭐⭐⭐⭐⭐",
+               
+            },
+            {
+                imageSrc: g2,
+                rank: '#06',
+                pname: 'Monica',
+                ptitle: 'Marketing',
+                prating: "⭐⭐⭐⭐⭐",
+               
+            },
+            {
+                imageSrc: p1,
+                rank: '#07',
+                pname: 'Anil',
+                ptitle: 'dotnet Developer',
+                prating: "⭐⭐⭐⭐⭐",
+             
+            },
+            {
+                imageSrc: g2,
+                rank: '#08',
+                pname: 'Rudrakshi Goush',
+                ptitle: 'Project coordinator',
+                prating: "⭐⭐⭐⭐⭐",
+               
+            },
+        
+        ],
         
     ];
     
@@ -318,7 +353,10 @@ export const Dashboard = () => {
                                 <Button href="#" className='all-avatar'>All Avatar</Button>
                                 <Button href="#" className='profile' onClick={handleSubmit}>profile</Button>
                             </div>
-                            <div type="text" className='search-bar'><CiSearch className='search-icon' />start searching Avatar here ...</div>
+                            <div className='search-login'>
+              <div type="text" className='profile-search-bar'><CiSearch className='profile-search-icon' />search Avatar here ...</div>
+              <Button href="#" className='dash-logout'>Logout</Button>
+            </div>
                         </div>
                         <Container fluid className='domain-content'>
 
@@ -357,54 +395,6 @@ export const Dashboard = () => {
                         </div>
 
 
-                        {/* 
-
-
-\
-                        <Row className="dash-row">
-                          
-
-
-                            <Col lg={3} md={6} sm={6} className="dash-column">
-                                <div className='img-data'>
-
-                                    <div className='image-div'>  <Image fluid src={p3} rounded style={{ borderRadius: '30px', }} className='user-photo' /><span className='rank'>#01</span></div>
-
-                                    <div className='person-detail'>
-                                        <div className='name-title'>
-                                            <span className='person-name'>Rupam Bhattacharjee</span>
-                                            <span className='person-title'>CEO</span>
-                                        </div>
-                                        <div className='rating-chat'>
-                                            <div className='stars'>⭐⭐⭐⭐⭐</div>
-                                            <Button className='chat-btn chat-btn1' onClick={() => handleChatClick("Rupam")}>CHAT</Button>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                            </Col>
-                            <Col lg={3} md={6}  sm={6} className="dash-column">
-                                <div className='img-data'>
-
-                                    <div className='image-div'>  <Image fluid  src={p4} rounded style={{ borderRadius: '30px', }} /><span className='rank'>#02</span></div>
-
-                                    <div className='person-detail'>
-                                        <div className='name-title'>
-                                            <span className='person-name'>Vishnu</span>
-                                            <span className='person-title'>Data scientist</span>
-                                        </div>
-                                        <div className='rating-chat'>
-                                            <div className='stars'>⭐⭐⭐⭐⭐</div>
-                                            <Button className='chat-btn chat-btn1'  onClick={() => handleChatClick("Vishnu")}>CHAT </Button>
-                                        </div>
-                                    </div>
-                                </div>
-                           
-
-
-
-*/}
                         {/* <MyVerticallyCenteredModal
                             show={modalShow}
                             onHide={() => setModalShow(false)}
