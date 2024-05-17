@@ -99,7 +99,6 @@ color:#1B3360;
     padding-bottom:30px;
     display: flex;
     flex-direction: column;
-    /* justify-content: space-between; */
    
    
 }
@@ -266,7 +265,6 @@ align-items: center;
 border-radius: 30px;
 display:flex;
 box-sizing: border-box;
-/* justify-content:flex-end; */
 justify-content: space-between;
 padding-right: 30px;
 padding-left: 50px;
@@ -283,7 +281,7 @@ line-height: 32px;
 letter-spacing: 0.01em;
 text-align: right;
 color:#FFFFFF;
-/* width: fit-content; */
+
 
 
 }
@@ -330,7 +328,6 @@ text-align: center;
     width: 100%;
     justify-content: flex-end;
 
- 
 }
 .line{
     font-family: Montserrat;
@@ -342,6 +339,8 @@ color: #6A6A6A;
 
 
 }
+
+
 .pdf-file
 {
     border: 1px solid #DCDCDC;

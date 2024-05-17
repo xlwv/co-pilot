@@ -6,10 +6,9 @@ import Button from 'react-bootstrap/Button';
 import { IoAdd } from "react-icons/io5";
 import { AiFillHome } from "react-icons/ai";
 import { IoPerson } from "react-icons/io5";
-import { IoSettingsSharp } from "react-icons/io5";
+
 import { useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom';
-import { CiSearch } from "react-icons/ci";
+
 import Image from 'react-bootstrap/Image';
 import Avatar from '../assets/images/Avatar.png';
 
@@ -18,6 +17,7 @@ import check from '../assets/images/check.png';
 
 import { useState } from 'react';
 import Modal from 'react-bootstrap/Modal';
+import { useCookies } from '../hooks/useCookies';
 
 function SuccessfullModal(props) {
   return (
@@ -68,27 +68,31 @@ function SuccessfullModal(props) {
 export const Profile = () => {
 
   const navigate = useNavigate();
-  const [selectedFile, setSelectedFile] = useState(null);
-  const [modalShow, setModalShow] = React.useState(false);
-  const handleFileChange = (event) => {
-    setSelectedFile(event.target.files[0]);
-  };
+  // const [selectedFile, setSelectedFile] = useState(null);
+  const [modalShow, setModalShow] = useState(false);
+  const { getCookie ,deleteAllCookies} = useCookies();
+  // const handleFileChange = (event) => {
+  //   setSelectedFile(event.target.files[0]);
+  // };
 
-  const handleUpload = () => {
-    // Here you can implement the logic to upload the selected file
-    if (selectedFile) {
-      console.log('Uploading file:', selectedFile);
-      // You can send the selected file to your server using fetch or any other method
-    } else {
-      console.log('No file selected');
-    }
-  };
+  // const handleUpload = () => {
+  
+  //   if (selectedFile) {
+  //     console.log('Uploading file:', selectedFile);
+     
+  //   } else {
+  //     console.log('No file selected');
+  //   }
+  // };
+const ProfileURL = getCookie("picture")
+console.log(ProfileURL);
   const handleSubmit = (event) => {
     event.preventDefault();
     window.location.href = '/dashboard';
   };
 
   const logouthere=()=>{
+    deleteAllCookies();
     navigate('/')
   }
 
@@ -124,12 +128,10 @@ export const Profile = () => {
           <div className='user-information'>
             <div className='blue'>
               <Container fluid className='person-photo'>
-                <Image fluid src={Avatar} className='person-pic'></Image>
+                <Image fluid src={ProfileURL ? ProfileURL : Avatar} className='person-pic'></Image>
                 {/* <Button className='pic-edit'>Edit</Button> */}
               </Container>
               <span className='your-profile'>Your Profile</span>
-
-
             </div>
 
             <div className='img-doc'>

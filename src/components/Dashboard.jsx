@@ -15,6 +15,7 @@ import bot from '../assets/images/bot.png';
 import user from '../assets/images/user.png';
 import blueuser from '../assets/images/blueuser.png';
 import send from '../assets/images/send.png';
+import { useCookies } from '../hooks/useCookies';
 
 
 import p1 from '../assets/images/p1.png';
@@ -39,7 +40,7 @@ function MyVerticallyCenteredModal({ pname, ...props }) {
 
     ]);
     console.log(pname);
-
+ 
     const handleMessageChange = (event) => {
         setMessage(event.target.value);
     };
@@ -227,6 +228,7 @@ const rowData = [
 ];
 
 
+
 export const Dashboard = () => {
     // const [modalShow, setModalShow] = React.useState(false);
     const navigate = useNavigate();
@@ -235,7 +237,12 @@ export const Dashboard = () => {
     const [modals, setModals] = useState([]);
     const [data, setData] = useState(rowData);
     const [searchTerm, setSearchTerm] = useState("");
-         
+    const { getCookie,deleteCookie,deleteAllCookies } = useCookies();
+
+
+    const Name = getCookie("firstName") +" " + getCookie("lastName");
+    const designation = getCookie("designation")
+    console.log(Name);
     const handleSearch = (event) => {
         event.preventDefault()
         setSearchTerm(event.target.value);
@@ -256,6 +263,7 @@ export const Dashboard = () => {
 
     };
     const logouthere=()=>{
+        deleteAllCookies();
         navigate('/')
       }
 
@@ -341,10 +349,10 @@ export const Dashboard = () => {
 
                             <div className='user-data'>
                                 <span className='user-name'>
-                                    Hi Anirban Chatterjee
+                                    Hi {Name}
                                 </span>
                                 <span className='user-title'>
-                                    Data scientist
+                                    {designation}
                                 </span>
 
                             </div>
