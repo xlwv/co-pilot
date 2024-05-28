@@ -36,11 +36,11 @@ import CardData from './Card';
 function MyVerticallyCenteredModal({ pname, ...props }) {
     const [message, setMessage] = useState('');
     const [chatHistory, setChatHistory] = useState([
-        { sender: 'Bot', message: `Hi am co pilot, ask me anything. `}
+        { sender: 'Bot', message: `Hi am co pilot, ask me anything. ` }
 
     ]);
     console.log(pname);
- 
+
     const handleMessageChange = (event) => {
         setMessage(event.target.value);
     };
@@ -48,7 +48,7 @@ function MyVerticallyCenteredModal({ pname, ...props }) {
 
 
     const sendMessage = async () => {
-     
+
         try {
             const headers = { "session-id": sessionStorage.getItem("sessionId") };
 
@@ -58,7 +58,7 @@ function MyVerticallyCenteredModal({ pname, ...props }) {
 
 
             console.log(response);
- 
+
             setChatHistory([...chatHistory, { sender: "User", message }, { sender: "Bot", message: response.data.response }])
 
         } catch (error) {
@@ -76,22 +76,22 @@ function MyVerticallyCenteredModal({ pname, ...props }) {
             size="lg"
             aria-labelledby="contained-modal-title-vcenter"
             centered
-            
-                style={{ 
-              
+
+            style={{
+
                 // backgroundColor: '#001A23E5'
-      }}
-               
-        
-            
-            >
+            }}
+
+
+
+        >
             <Modal.Body
-              style={{ 
-                border: '3px solid #00B0f0',
-                borderRadius:'30px ',
-                background: '#001A23E5',
-      }}
-            
+                style={{
+                    border: '3px solid #00B0f0',
+                    borderRadius: '30px ',
+                    background: '#001A23E5',
+                }}
+
             >
                 <button className="btn-close" onClick={props.onHide} style={{ backgroundColor: '#FFFFFF' }}></button>
                 <div className="chat_msg_cont">
@@ -133,18 +133,18 @@ function MyVerticallyCenteredModal({ pname, ...props }) {
                                 </form>
                             </div>
                             <div className="sent-btn-emoji">
-                                
-                                   
-                                        <a onClick={sendMessage}>
-                                            {/* <svg xmlns="http://www.w3.org/2000/svg" width="30" height="34" viewBox="0 0 30 34" fill="none">
+
+
+                                <a onClick={sendMessage}>
+                                    {/* <svg xmlns="http://www.w3.org/2000/svg" width="30" height="34" viewBox="0 0 30 34" fill="none">
                                                 <g clip-path="url(#clip0_15840_4181)">
                                                     <path d="M26.0433 16.9706C26.043 16.8278 26.0078 16.688 25.9417 16.5678C25.8756 16.4475 25.7815 16.3517 25.6703 16.2917L12.0229 8.86712C11.9039 8.80467 11.7713 8.78591 11.6429 8.81335C11.5145 8.84078 11.3963 8.91311 11.304 9.02073C11.2117 9.12834 11.1496 9.26615 11.1261 9.41585C11.1026 9.56555 11.1186 9.72005 11.1722 9.85884L13.5196 16.2334L19.297 16.2228L19.297 17.7183L13.5014 17.7183L11.1586 24.0982C11.1076 24.2362 11.0934 24.3888 11.1177 24.5363C11.1421 24.6838 11.2038 24.8194 11.295 24.9255C11.3889 25.0305 11.5078 25.0999 11.6361 25.1245C11.7644 25.1491 11.8961 25.1278 12.0138 25.0634L25.6612 17.6388C25.7727 17.5811 25.8678 17.4876 25.9355 17.3693C26.0031 17.251 26.0405 17.1127 26.0433 16.9706Z" fill="white" />
                                                 </g>
                                             </svg> */}
-                                            <img src={send} className='send-btn'></img>
-                                        </a>
-                                      
-                                
+                                    <img src={send} className='send-btn'></img>
+                                </a>
+
+
                             </div>
                         </div>
                     </div>
@@ -155,14 +155,14 @@ function MyVerticallyCenteredModal({ pname, ...props }) {
 }
 
 const rowData = [
-        
+
     {
         imageSrc: p3,
         rank: '#01',
         pname: 'Rupam',
         ptitle: 'CEO',
         prating: "⭐⭐⭐⭐⭐",
-        
+
     },
     {
         imageSrc: p4,
@@ -170,7 +170,7 @@ const rowData = [
         pname: 'Vishnu',
         ptitle: 'Data Scientist',
         prating: "⭐⭐⭐⭐⭐",
-        
+
 
     },
     {
@@ -179,7 +179,7 @@ const rowData = [
         pname: 'Akshayaa Easwaran',
         ptitle: 'UI/UX Designer',
         prating: "⭐⭐⭐⭐⭐",
-        
+
     },
     {
         imageSrc: p4,
@@ -187,9 +187,9 @@ const rowData = [
         pname: 'Prabhat Ranjan',
         ptitle: 'web Developer',
         prating: "⭐⭐⭐⭐⭐",
-     
+
     },
-    
+
 
 
     {
@@ -198,7 +198,7 @@ const rowData = [
         pname: 'Varsha',
         ptitle: 'UI/UX Designer',
         prating: "⭐⭐⭐⭐⭐",
-       
+
     },
     {
         imageSrc: g2,
@@ -206,7 +206,7 @@ const rowData = [
         pname: 'Monica',
         ptitle: 'Marketing',
         prating: "⭐⭐⭐⭐⭐",
-       
+
     },
     {
         imageSrc: p1,
@@ -214,7 +214,7 @@ const rowData = [
         pname: 'Anil',
         ptitle: 'dotnet Developer',
         prating: "⭐⭐⭐⭐⭐",
-     
+
     },
     {
         imageSrc: g2,
@@ -222,7 +222,7 @@ const rowData = [
         pname: 'Rudrakshi Goush',
         ptitle: 'Project coordinator',
         prating: "⭐⭐⭐⭐⭐",
-       
+
     },
 
 ];
@@ -237,10 +237,10 @@ export const Dashboard = () => {
     const [modals, setModals] = useState([]);
     const [data, setData] = useState(rowData);
     const [searchTerm, setSearchTerm] = useState("");
-    const { getCookie,deleteCookie,deleteAllCookies } = useCookies();
+    const { getCookie, deleteCookie, deleteAllCookies } = useCookies();
 
 
-    const Name = getCookie("firstName") +" " + getCookie("lastName");
+    const Name = getCookie("firstName") + " " + getCookie("lastName");
     const designation = getCookie("designation")
     const ProfileURL = getCookie("picture")
     console.log(Name);
@@ -263,10 +263,10 @@ export const Dashboard = () => {
         window.location.href = '/Profile';
 
     };
-    const logouthere=()=>{
+    const logouthere = () => {
         deleteAllCookies();
         navigate('/')
-      }
+    }
 
 
 
@@ -294,7 +294,7 @@ export const Dashboard = () => {
 
 
     // };
-    
+
     const handleChatClick = (pname) => {
         const newModal = {
             pname: pname,
@@ -316,8 +316,6 @@ export const Dashboard = () => {
     return (
         <>
 
-
-
             <div>
                 <div className='dashboard-main'>
                     <div className='side-bar'>
@@ -331,35 +329,32 @@ export const Dashboard = () => {
                     </div>
                     <Container fluid className='dashboard-content'>
                         <div className='nav-bar'>
-                            <div className='dash-btn'>
-                                <Button href="#" className='all-avatar'>All Avatar</Button>
-                                <Button href="#" className='profile' onClick={handleSubmit}>profile</Button>
-                            </div>
+
                             <div className='welcometo'>
                                 Welcome To Co Pilot
                             </div>
                             <div className='search-logout'>
-              <div type="text" className='search-bar'>
-                <CiSearch className='search-icon' onChange={handleSearch} />
-                <input name={searchTerm} value={searchTerm}  onChange={handleSearch} className='searchbox' type="text" placeholder='Start searching Avatar here ...' />
-                  </div>
+                                <div type="text" className='search-bar'>
+                                    <CiSearch className='search-icon' onChange={handleSearch} />
+                                    <input name={searchTerm} value={searchTerm} onChange={handleSearch} className='searchbox' type="text" placeholder='Start searching Avatar here ...' />
+                                </div>
 
-              <div className='profilenamecontianer'>
-                <div className='profilearea'>
+                                <div className='profilenamecontianer'>
+                                    <div className=''>
 
-                <img width="40px" height="40px" src={ProfileURL} alt="" />
-                </div>
-                <div className='namedesignation'>
-                    <p>{Name}</p>
-                    <p> {designation}</p>
-                </div>
-              </div>
-              {/* <Button  className='dash-logout' onClick={logouthere}>Logout</Button> */}
-            </div>
+                                        <img className="profilearea" width="40px" height="40px" src={ProfileURL} alt="" />
+                                    </div>
+                                    <div className='namedesignation'>
+                                        <p style={{ marginTop: "-7px" }}>{Name}</p>
+                                        <p style={{ marginTop: "-10px" }}> {designation}</p>
+                                    </div>
+                                </div>
+                                {/* <Button  className='dash-logout' onClick={logouthere}>Logout</Button> */}
+                            </div>
                         </div>
                         <Container fluid className='domain-content'>
 
-                            <div className='user-data'>
+                            {/* <div className='user-data'>
                                 <span className='user-name'>
                                     Hi {Name}
                                 </span>
@@ -367,40 +362,40 @@ export const Dashboard = () => {
                                     {designation}
                                 </span>
 
-                            </div>
-                            
-                                <Row className="dash-row">
-                                    {data.map((person, personIndex) => (
-                                        <Col lg={3} md={6} sm={6} className="dash-column" key={personIndex}>
-                                            <CardData
-                                                imageSrc={person.imageSrc}
-                                                rank={person.rank}
-                                                pname={person.pname}
-                                                ptitle={person.ptitle}
-                                                prating={person.prating}
-                                                onChatClick={() => handleChatClick(person.pname, personIndex)}
-                                                key={personIndex}
-                                            />
-                                        </Col>
-                                    ))}
-                                </Row>
-                            
-                            </Container>
+                            </div> */}
+
+                            <Row className="dash-row">
+                                {data.map((person, personIndex) => (
+                                    <Col lg={3} md={6} sm={6} className="dash-column" key={personIndex}>
+                                        <CardData
+                                            imageSrc={person.imageSrc}
+                                            rank={person.rank}
+                                            pname={person.pname}
+                                            ptitle={person.ptitle}
+                                            prating={person.prating}
+                                            onChatClick={() => handleChatClick(person.pname, personIndex)}
+                                            key={personIndex}
+                                        />
+                                    </Col>
+                                ))}
+                            </Row>
+
+                        </Container>
 
                     </Container>
 
 
-            </div> 
-                        </div>
+                </div>
+            </div>
 
 
-                        {/* <MyVerticallyCenteredModal
+            {/* <MyVerticallyCenteredModal
                             show={modalShow}
                             onHide={() => setModalShow(false)}
                         pname={apiName}
                         selectedKey={selectedKey}
                         /> */}
-                        {modals.map((modal, index) => (
+            {modals.map((modal, index) => (
                 <MyVerticallyCenteredModal
                     key={index}
                     show={modal.show}
@@ -412,6 +407,6 @@ export const Dashboard = () => {
             ))}
 
 
-                    </>
-                    );
+        </>
+    );
 }
