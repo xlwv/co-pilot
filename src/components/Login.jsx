@@ -51,6 +51,7 @@ export const Login = () => {
     return (
         <>
             <div className="login-main">
+            <Container className='left-grad'></Container>
                 <Container fluid className='login-content'>
                     <span className='login-heading'>LOG IN</span>
 
@@ -75,6 +76,7 @@ export const Login = () => {
                     <span className='tnc'>Privacy Policy | T&C</span>
                     <span className='allrights'>All rights reserved 2024 © PMO360 | WaysAhead Global Portfolio</span>
                 </Container>
+                <Container className='left-grad1'></Container>
             </div>
         </>
     );
