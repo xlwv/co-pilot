@@ -416,21 +416,37 @@ margin-top: 20px;
    
 }
 }
-/* .profile-close
+.profile-close
 {
     display: flex;
-    justify-content: end;
-    margin-bottom: 350px;
+    align-items: center;
+    justify-content:flex-end;
+    margin-right: 30px;
+    margin-top: 30px;
+    
+    
     
 
-} */
+}
+
+
 .success-main
 {
     width: 597px;
+height: 400px;
+top: 200px;
+left: 422px;
+gap: 0px;
+border-radius: 40px;
+border: 2px 0px 0px 0px;
+opacity: 0px;
+
+    width: 597px;
     height: 401px;
-    background-color: #FFFFFF;
-/* display: flex; */
-/* flex-direction: column; */
+    background: linear-gradient(145.87deg, #ffffff 0%, rgba(255, 255, 255, 0.534) 40%);
+
+
+
 justify-content: center;
 align-items: center;
 
@@ -451,7 +467,7 @@ font-size: 24px;
 font-weight: 600;
 line-height: 30.24px;
 text-align: center;
-color: #4A4A4A;
+color: white;
 margin-top:20px ;
 font-family: Montserrat;
 
