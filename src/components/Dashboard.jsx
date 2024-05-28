@@ -6,6 +6,7 @@ import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 import { IoAdd } from "react-icons/io5";
 import { AiFillHome } from "react-icons/ai";
+import { FiAlignCenter } from "react-icons/fi";
 import { IoPerson } from "react-icons/io5";
 import { IoSettingsSharp } from "react-icons/io5";
 import { useNavigate } from 'react-router-dom';
@@ -318,15 +319,29 @@ export const Dashboard = () => {
 
             <div>
                 <div className='dashboard-main'>
-                    <div className='side-bar'>
+                    {/* <div className='side-bar'>
                         <Button className='side-bar-add'>
                             <IoAdd style={{ width: '50px', height: '50px', color: '#FFFFFF' }} />
                         </Button>
                         <AiFillHome className='home-icon' />
                         <IoPerson className='profile-icon' />
-                        {/* <IoSettingsSharp className='settings-icon' /> */}
+                        <IoSettingsSharp className='settings-icon' />
 
+                    </div> */}
+                         
+                    <div className='side-bar'>
+                        <FiAlignCenter style={{width:"30px", height:"50px" , color:"white"}}/>
+                        <div className='icon-label'>
+                        <AiFillHome className='home-icon'  />
+                        <span className='icon-text'>Home</span>
+                        </div>
+                        <div className='icon-label'>
+                        <IoPerson className='home-icon'/>
+                        <span className='icon-text'>Profile</span>
+                        </div>
+                        {/* <IoSettingsSharp className='settings-icon' /> */}
                     </div>
+
                     <Container fluid className='dashboard-content'>
                         <div className='nav-bar'>
 
@@ -366,7 +381,7 @@ export const Dashboard = () => {
 
                             <Row className="dash-row">
                                 {data.map((person, personIndex) => (
-                                    <Col lg={3} md={6} sm={6} className="dash-column" key={personIndex}>
+                                    <Col lg={4} md={6} sm={6} className="dash-column" key={personIndex}>
                                         <CardData
                                             imageSrc={person.imageSrc}
                                             rank={person.rank}

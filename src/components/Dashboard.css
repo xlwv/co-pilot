@@ -14,37 +14,51 @@ margin: 0px;
 .side-bar
 {
     height: 100vdh;
-    max-width:70px;
-    width:100%;
-    border-radius:265px;
-    background-color: #FFFFFF;
-    display:flex;
-    flex-direction:column;
-  align-items: center;
+    width:300px;
+   
+    background: linear-gradient(145.87deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 100%);
+
+  
 }
 .side-bar-add
 {
-    background-color: #1B3360;
+    
     width: 64px;
     height: 64px;
-    border: 2px solid #FFFFFF;
-    border-radius: 50%;
+   
+    
     display: flex;
   justify-content: center; 
   align-items: center;
   margin-top:5px;
 }
+.icon-label{
+  width: 180px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  
+  margin-bottom: 20px;
+  margin-left: 30px;
+  color: white;
+  border-radius: 20px;
+  padding: 5px;
+  gap: 10px;
+}
+.icon-label:hover{
+  background-color: #00263E;
+  cursor: pointer;
+}
 .home-icon
 {
-color:#1B3360;
-margin-top:120px;
+  color:#FFFFFF;
+margin-left: 30px;
 height:30px;
 width:30px;
 }
 .profile-icon
 {
-    color:#BDBDBD;
-    margin-top:30px;
+  color:#FFFFFF;
     height:30px;
 width:30px;
 }
@@ -112,6 +126,12 @@ align-items: center;
 
 .img-data {
   animation: slideInFromRight 1.2s ease-in-out; 
+  width: 350px;
+  height: 450px;
+  background: linear-gradient(145.87deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 100%);
+
+  border: 2px solid #FFFFFF;
+  border-radius: 30px;
 }
 .profile-search-bar input[type="text"] {
  /* Ensure space for the icon */
@@ -207,9 +227,10 @@ margin-top: 10px;
 
 .search-bar{
 
+  background: linear-gradient(145.87deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 100%);
 
 border-radius: 47.5px;
-background-color: #908383;
+
 height:50px;
 width: 365px;
 padding-left:10px;
@@ -229,10 +250,13 @@ border: 2px solid #FFFFFF;
 
   
 }
+
 .search-bar input[type="text"]
 {
   border: none;
   outline: none;
+background: transparent;
+width: 290px;
 }
 .dash-logout
 {
@@ -279,23 +303,25 @@ align-items: center;
 }
 .person-name
 {
-    font-family: Montserrat;
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 29px;
-    letter-spacing: 0.03em;
-   
-    color: #1A1A1A;
+  font-family: Lora;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 29px;
+  letter-spacing: 0.03em;
+  text-align: left;
+  
 
 }
 .person-title
 {
-    font-family: Montserrat;
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 29px;
-    letter-spacing: 0.03em;
-    color: #1A1A1A;
+  font-family: Lora;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 29px;
+  letter-spacing: 0.03em;
+  text-align: left;  
+    
+    margin-top: 10px;
     
 }
 .dash-column
@@ -315,7 +341,7 @@ transition-delay: calc(.2s * var(--i)); */
 
 
 .dash-column:hover {
-  transform:scale(1.1);
+  transform:scale(1.05);
 }
 
 .image-div
@@ -324,7 +350,7 @@ transition-delay: calc(.2s * var(--i)); */
     height:250px;
     display:flex;
     justify-content: center;
-    background-color: #FEF0E7;
+    /* background-color: #FEF0E7; */
     box-shadow: 5px 0px 15px 0px #00000033;
 position: relative;
 border-radius: 30px 30px 0px 0px;
@@ -337,12 +363,12 @@ border-radius: 30px 30px 0px 0px;
     display:flex;
     flex-direction: column;
     justify-content: center;
-    background: #FFFFFF;
+   
     box-shadow: 5px 5px 15px 0px #00000033;
     padding:10px ;
    
    border-radius : 0px 0px 30px 30px;
-    
+    color: #FFFFFF;
     
 
 
@@ -353,10 +379,15 @@ border-radius: 30px 30px 0px 0px;
     
   
 } */
-.user-photo
-{
-  height:250px;
+
+  .user-photo {
+    height: 200px;
+    width: 200px;
+    border-radius: 100%;
+    border: 3px rgb(37, 23, 14);
+    margin-top: 30px;
 }
+
 
 
 
@@ -372,32 +403,23 @@ border-radius: 30px 30px 0px 0px;
 .rating-chat
 {
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
+    gap: 20px;
     margin-top: 20px;
 }
 .chat-btn
 {
-    width: 140px;
-height: 42px;
-
-padding: 0px 24px 0px 24px;
-
-border-radius: 32px;
-
-background: linear-gradient(180deg, #1C3665, #386DCB);
-
-font-family: Montserrat;
-font-size: 16px;
-font-weight: 700;
-line-height: 24px;
-letter-spacing: 0.05em;
-color: #FFFFFF;
-border:none;
-box-shadow: 
-    10px 10px 14px 0 rgba(0, 0, 0, 0.25),
-    -10px -10px 10px 0 rgba(255, 255, 255, 0.3);
-
+  width: 290px;
+  height: 42px;
+  margin-top: -10px;
+  padding: 0px 24px 0px 24px;
+  gap: 0px;
+  border-radius: 32px;
+  opacity: 0px;
+  background-color: #00263E;
+  color: #FFFFFF;
 
 }
 .chat-btn1:hover {
@@ -534,7 +556,19 @@ text-align: left;
  .profilenamecontianer{
   justify-content: flex-start;
  }
-   
+ .img-data{
+  width: 100%;
+ }
+ .chat-btn{
+  width: 190px;
+ }
+.person-name{
+  font-size: 18px;
+}
+.person-title{
+  font-size: 18px;
+}
+
 }
 
 
