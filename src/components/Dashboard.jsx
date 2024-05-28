@@ -242,6 +242,7 @@ export const Dashboard = () => {
 
     const Name = getCookie("firstName") +" " + getCookie("lastName");
     const designation = getCookie("designation")
+    const ProfileURL = getCookie("picture")
     console.log(Name);
     const handleSearch = (event) => {
         event.preventDefault()
@@ -319,7 +320,6 @@ export const Dashboard = () => {
 
             <div>
                 <div className='dashboard-main'>
-
                     <div className='side-bar'>
                         <Button className='side-bar-add'>
                             <IoAdd style={{ width: '50px', height: '50px', color: '#FFFFFF' }} />
@@ -335,14 +335,26 @@ export const Dashboard = () => {
                                 <Button href="#" className='all-avatar'>All Avatar</Button>
                                 <Button href="#" className='profile' onClick={handleSubmit}>profile</Button>
                             </div>
+                            <div className='welcometo'>
+                                Welcome To Co Pilot
+                            </div>
                             <div className='search-logout'>
               <div type="text" className='search-bar'>
                 <CiSearch className='search-icon' onChange={handleSearch} />
-                <input name={searchTerm} value={searchTerm}  onChange={handleSearch} className='searchbox' type="text" placeholder='search Avatar here ...' />
+                <input name={searchTerm} value={searchTerm}  onChange={handleSearch} className='searchbox' type="text" placeholder='Start searching Avatar here ...' />
                   </div>
 
+              <div className='profilenamecontianer'>
+                <div className='profilearea'>
 
-              <Button  className='dash-logout' onClick={logouthere}>Logout</Button>
+                <img width="40px" height="40px" src={ProfileURL} alt="" />
+                </div>
+                <div className='namedesignation'>
+                    <p>{Name}</p>
+                    <p> {designation}</p>
+                </div>
+              </div>
+              {/* <Button  className='dash-logout' onClick={logouthere}>Logout</Button> */}
             </div>
                         </div>
                         <Container fluid className='domain-content'>

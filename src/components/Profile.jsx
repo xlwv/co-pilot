@@ -32,6 +32,7 @@ function SuccessfullModal(props) {
         width: '100%',
         height: '100%',
         border: 'none',
+        backgroundColor: "#000000B2"
       }}
 
     >
@@ -46,7 +47,7 @@ function SuccessfullModal(props) {
 
         <div className='success-main'>
           <div className=' profile-close'>
-            <button type="button" className="btn-close " onClick={props.onHide} style={{ backgroundColor: '#FFFFFF', padding: '10px' }} >
+            <button type="button" className="btn-close" onClick={props.onHide} style={{ color: '#FFFFFF', padding: '10px' }} >
             </button>
           </div>
           <div className='success-content'>
