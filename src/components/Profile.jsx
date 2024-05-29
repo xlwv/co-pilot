@@ -85,6 +85,8 @@ export const Profile = () => {
   //     console.log('No file selected');
   //   }
   // };
+  const Name = getCookie("firstName") +" " + getCookie("lastName");
+    const designation = getCookie("designation")
 const ProfileURL = getCookie("picture")
 console.log(ProfileURL);
   const handleSubmit = (event) => {
@@ -126,14 +128,18 @@ console.log(ProfileURL);
               <Button  className='profile-logout' onClick={logouthere}>Logout</Button>
             </div>
           </div>
-          <div className='user-information'>
-            <div className='blue'>
-              <Container fluid className='person-photo'>
+          <Container fluid className='user-information'>
+            <Container fluid className='blue'>
+            <Container fluid className='person-photo'>
                 <Image fluid src={ProfileURL ? ProfileURL : Avatar} className='person-pic'></Image>
                 {/* <Button className='pic-edit'>Edit</Button> */}
               </Container>
-              <span className='your-profile'>Your Profile</span>
-            </div>
+              <div className='your-profile'>
+              <p>{Name}</p>
+              <p>{designation}</p>
+
+              </div>
+            </Container>
 
             <div className='img-doc'>
 
@@ -146,7 +152,7 @@ console.log(ProfileURL);
               </div>
             </div>
 
-          </div>
+          </Container>
 
 
         </Container>
